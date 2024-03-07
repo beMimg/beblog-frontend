@@ -3,9 +3,18 @@
 @tailwind utilities;
 
 .dark {
-  @apply text-white dark:bg-gray-800;
+  @apply text-white dark:bg-neutral-950;
+}
+.dark input {
+  @apply text-black;
+}
+.dark button {
+  @apply bg-white text-black;
 }
 
 .light {
   @apply bg-white text-black;
+}
+.light button {
+  @apply bg-black text-white;
 }
