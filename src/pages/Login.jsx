@@ -1,21 +1,22 @@
 import { useState } from "react";
 import { useAuth } from "../../context/authProvider";
+import axios from "axios";
 
 async function loginUser(credentials) {
   try {
-    const response = await fetch("http://localhost:3000/api/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(credentials),
-    });
+    const response = await axios.post(
+      "http://localhost:3000/api/login",
+      credentials,
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
 
-    const data = await response.json();
-
-    return data;
+    return response.data;
   } catch (err) {
-    throw err;
+    return err.response.data;
   }
 }
 
