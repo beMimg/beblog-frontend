@@ -7,8 +7,6 @@ import RootLayout from "./layouts/RootLayout";
 // Pages
 import SignUp from "./pages/SignUp";
 import Login from "./pages/Login";
-import AuthenticatedOnly from "./pages/AuthenticatedOnly";
-import Layout from "./layouts/RootLayout";
 
 const Routes = () => {
   const { token } = useAuth();
@@ -23,7 +21,7 @@ const Routes = () => {
   const routesForAuthenticatedOnly = [
     {
       path: "/",
-      element: <AuthenticatedOnly />,
+      element: <RootLayout />,
     },
   ];
 

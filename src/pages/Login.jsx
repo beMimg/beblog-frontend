@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useAuth } from "../../context/authProvider";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 async function loginUser(credentials) {
   try {
@@ -26,6 +27,7 @@ export default function Login() {
   const [errors, setErrors] = useState("");
 
   const { setToken } = useAuth();
+  const navigate = useNavigate();
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -38,7 +40,7 @@ export default function Login() {
       return;
     } else {
       setToken(data.token);
-      return;
+      navigate("/", { replace: true });
     }
   }
 
