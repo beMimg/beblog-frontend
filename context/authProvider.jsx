@@ -3,12 +3,12 @@ import axios from "axios";
 
 const AuthContext = createContext();
 
-const AuthProvider = ({ children }) => {
+function AuthProvider({ children }) {
   const [token, setToken_] = useState(localStorage.getItem("token"));
 
-  const setToken = (newToken) => {
+  function setToken(newToken) {
     setToken_(newToken);
-  };
+  }
 
   useEffect(() => {
     if (token) {
@@ -30,10 +30,10 @@ const AuthProvider = ({ children }) => {
   return (
     <AuthContext.Provider value={contextValue}>{children}</AuthContext.Provider>
   );
-};
+}
 
-export const useAuth = () => {
+export function useAuth() {
   return useContext(AuthContext);
-};
+}
 
 export default AuthProvider;
