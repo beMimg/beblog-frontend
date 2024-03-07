@@ -1,5 +1,5 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import { useAuth } from "../context/authProvider";
+import { useAuth } from "./context/authProvider";
 
 // Layout
 import RootLayout from "./layouts/RootLayout";
@@ -7,14 +7,21 @@ import RootLayout from "./layouts/RootLayout";
 // Pages
 import SignUp from "./pages/SignUp";
 import Login from "./pages/Login";
+import AboutUs from "./pages/AboutUs";
 
 const Routes = () => {
   const { token } = useAuth();
 
   const routesForPublic = [
     {
-      path: "/about",
-      // element: <Layout />,
+      path: "/",
+      element: <RootLayout />,
+      children: [
+        {
+          path: "/about-us",
+          element: <AboutUs />,
+        },
+      ],
     },
   ];
 
@@ -40,9 +47,9 @@ const Routes = () => {
   ];
 
   const router = createBrowserRouter([
-    ...routesForPublic,
     ...(!token ? routesForNotAuthenticatedOnly : []),
     ...routesForAuthenticatedOnly,
+    ...routesForPublic,
   ]);
 
   return <RouterProvider router={router} />;
