@@ -1,14 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-// async function getUser() {
-//   try {
-
-//     return response.data;
-//   } catch (err) {
-//     return err;
-//   }
-// }
 export default function UserProfile() {
   const [user, setUser] = useState();
 
@@ -21,7 +13,7 @@ export default function UserProfile() {
 
         setUser(response.data);
       } catch (err) {
-        console.log(err);
+        return;
       }
     };
     getUser();

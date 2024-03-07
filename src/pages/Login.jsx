@@ -12,7 +12,7 @@ async function loginUser(credentials) {
         headers: {
           "Content-Type": "application/json",
         },
-      }
+      },
     );
 
     return response.data;
