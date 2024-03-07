@@ -7,8 +7,8 @@ export default function Layout() {
   console.log(token);
 
   return (
-    <div className="font-inter min-h-screen">
-      <header className="p-4 bg-slate-400">
+    <div className="flex min-h-screen flex-col font-inter">
+      <header className="bg-slate-400 p-4">
         <Nav />
       </header>
       <Outlet />

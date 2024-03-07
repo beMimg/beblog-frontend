@@ -6,11 +6,11 @@ export default function Nav() {
 
   return (
     <nav className="flex flex-row justify-between">
-      <h1>Blog</h1>
+      <Link to="/">BLOG</Link>
       {token ? (
         <div className="flex flex-row gap-6">
           <Link to="/posts">Posts</Link>
-          <Link to="/profile">Profile</Link>
+          <Link to="/user-profile">Profile</Link>
           <Link to="/about-us">About</Link>
         </div>
       ) : (

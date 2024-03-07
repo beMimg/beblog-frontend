@@ -8,7 +8,8 @@ import RootLayout from "./layouts/RootLayout";
 import SignUp from "./pages/SignUp";
 import Login from "./pages/Login";
 import AboutUs from "./pages/AboutUs";
-import AuthenticatedOnly from "./pages/AuthenticatedOnly";
+import UserProfile from "./pages/UserProfile";
+import Homepage from "./pages/Homepage";
 
 const Routes = () => {
   const { token } = useAuth();
@@ -22,8 +23,8 @@ const Routes = () => {
 
   const routesForAuthenticatedOnly = [
     {
-      path: "/authenticated-only",
-      element: <AuthenticatedOnly />,
+      path: "/user-profile",
+      element: <UserProfile />,
     },
   ];
 
@@ -40,6 +41,7 @@ const Routes = () => {
       path: "/",
       element: <RootLayout />,
       children: [
+        { index: true, element: <Homepage /> },
         ...(!token ? routesForNotAuthenticatedOnly : []),
         ...(token ? routesForAuthenticatedOnly : []),
         ...routesForPublic,
