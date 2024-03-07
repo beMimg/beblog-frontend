@@ -1,11 +1,11 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useTheme } from "../context/themeProvider";
+import getColor from "../functions/getColor";
 
 export default function UserProfile() {
   const [user, setUser] = useState();
   const { setTheme } = useTheme();
-
   useEffect(() => {
     const getUser = async () => {
       try {
@@ -25,11 +25,16 @@ export default function UserProfile() {
     return <p>Loading</p>;
   }
 
+  const color = getColor(user.user.color);
+  console.log(typeof user.user.color);
+
   return (
     <div className="p-4">
       {user && (
         <div className="flex flex-col items-center justify-center gap-4 pt-4">
-          <div className="h-20 w-20 cursor-pointer rounded-full border-2 "></div>
+          <div
+            className={`h-20 w-20 cursor-pointer rounded-full border-2 ${color}`}
+          ></div>
           <p className="text-4xl  font-semibold">{user.user.username}</p>
           <div className="flex flex-row gap-1">
             <h1>{user.user.first_name}</h1>
