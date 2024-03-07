@@ -8,48 +8,43 @@ import RootLayout from "./layouts/RootLayout";
 import SignUp from "./pages/SignUp";
 import Login from "./pages/Login";
 import AboutUs from "./pages/AboutUs";
+import AuthenticatedOnly from "./pages/AuthenticatedOnly";
 
 const Routes = () => {
   const { token } = useAuth();
 
   const routesForPublic = [
     {
-      path: "/",
-      element: <RootLayout />,
-      children: [
-        {
-          path: "/about-us",
-          element: <AboutUs />,
-        },
-      ],
+      path: "/about-us",
+      element: <AboutUs />,
     },
   ];
 
   const routesForAuthenticatedOnly = [
     {
-      path: "/",
-      element: <RootLayout />,
+      path: "/authenticated-only",
+      element: <AuthenticatedOnly />,
     },
   ];
 
   const routesForNotAuthenticatedOnly = [
     {
-      path: "/",
-      element: <RootLayout />,
-      children: [
-        {
-          path: "/sign-up",
-          element: <SignUp />,
-        },
-        { path: "/login", element: <Login /> },
-      ],
+      path: "/sign-up",
+      element: <SignUp />,
     },
+    { path: "/login", element: <Login /> },
   ];
 
   const router = createBrowserRouter([
-    ...(!token ? routesForNotAuthenticatedOnly : []),
-    ...routesForAuthenticatedOnly,
-    ...routesForPublic,
+    {
+      path: "/",
+      element: <RootLayout />,
+      children: [
+        ...(!token ? routesForNotAuthenticatedOnly : []),
+        ...(token ? routesForAuthenticatedOnly : []),
+        ...routesForPublic,
+      ],
+    },
   ]);
 
   return <RouterProvider router={router} />;

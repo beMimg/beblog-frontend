@@ -51,6 +51,7 @@ export default function SignUp() {
     } else {
       <p>sucess</p>;
       navigate("/login", { replace: true });
+      return;
     }
   }
 
