@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useAuth } from "../../context/authProvider";
 
 async function loginUser(credentials) {
   try {
@@ -18,10 +19,12 @@ async function loginUser(credentials) {
   }
 }
 
-export default function Login({ setToken }) {
+export default function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState("");
+
+  const { setToken } = useAuth();
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -29,12 +32,11 @@ export default function Login({ setToken }) {
       username,
       password,
     });
-
     if (data.error) {
       setErrors(data.error);
       return;
     } else {
-      setToken(data);
+      setToken(data.token);
       return;
     }
   }

@@ -1,15 +1,13 @@
 import { useState } from "react";
 import { Outlet } from "react-router-dom";
-import Login from "../pages/Login";
-
+import { useAuth } from "../../context/authProvider";
 export default function Layout() {
-  const [token, setToken] = useState();
+  const { token } = useAuth();
   console.log(token);
   return (
     <div>
       <header>
         <p>Root Layout</p>
-        {!token ? <Login setToken={setToken} /> : <p>You are logged in</p>}
       </header>
       <Outlet />
     </div>
