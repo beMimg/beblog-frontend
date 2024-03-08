@@ -25,14 +25,14 @@ export default function ColorModal({ setIsColorModalOpen, user }) {
         `http://localhost:3000/api/users/${user.user._id}/update-color`,
         { color },
       );
-      navigate("/", { replace: true });
+      navigate(0);
     } catch (err) {
       console.log(err.response.data.message);
     }
   }
   return (
     <form
-      className="themeModal relative flex w-[90%] flex-col items-center gap-4 rounded-lg bg-slate-300 p-3"
+      className="themeModal relative flex w-[90%] flex-col items-center gap-4 rounded-lg bg-slate-300 p-3 lg:w-[60%] xl:w-[40%] "
       onSubmit={handleSubmit}
     >
       <h1 className="text-lg font-semibold">Pick a profile color:</h1>
@@ -41,14 +41,14 @@ export default function ColorModal({ setIsColorModalOpen, user }) {
         onClick={() => setIsColorModalOpen(false)}
       />
 
-      <div className=" grid grid-cols-4 gap-2 p-3">
+      <div className=" grid w-full grid-cols-4 items-center justify-center gap-2 p-3 ">
         {colors &&
           colors.map((color) => (
             <button
               type="button"
               key={color.name}
               onClick={() => setColor(color.name)}
-              className={`${color.style} custom-btn h-[60px] w-[60px] rounded-full border-black focus:border-4`}
+              className={`${color.style} custom-btn h-[60px] w-[60px] justify-self-center rounded-full border-black focus:border-4`}
             ></button>
           ))}
       </div>
