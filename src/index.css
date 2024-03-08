@@ -8,13 +8,25 @@
 .dark input {
   @apply text-black;
 }
-.dark button {
+.dark .themeButton {
   @apply bg-white text-black;
+}
+.dark .themeModal {
+  @apply text-black;
+}
+.dark .themeModalButton {
+  @apply bg-black text-white;
 }
 
 .light {
   @apply bg-white text-black;
 }
-.light button {
+.light .themeButton {
   @apply bg-black text-white;
+}
+.light .themeModal {
+  @apply bg-neutral-950 text-white;
+}
+.light .themeModalButton {
+  @apply bg-white text-black;
 }
