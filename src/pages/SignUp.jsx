@@ -11,7 +11,7 @@ async function SignUpUser(credentials) {
         headers: {
           "Content-Type": "application/json",
         },
-      }
+      },
     );
 
     return response.data;
@@ -55,7 +55,6 @@ export default function SignUp() {
     }
   }
 
-  console.log(errors);
   return (
     <div>
       <form onSubmit={handleSubmit}>

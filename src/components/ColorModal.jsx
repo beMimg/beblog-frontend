@@ -1,4 +1,8 @@
+import { useState } from "react";
 import { IoIosClose } from "react-icons/io";
+import editProfile from "../functions/editProfile";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const colors = [
   { name: "red", style: "bg-red-400" },
@@ -10,12 +14,30 @@ const colors = [
   { name: "pink", style: "bg-pink-400" },
 ];
 
-export default function ColorModal({ setIsColorModalOpen }) {
+export default function ColorModal({ setIsColorModalOpen, user }) {
+  const [color, setColor] = useState();
+  const navigate = useNavigate();
+
+  async function handleSubmit(e) {
+    e.preventDefault();
+    try {
+      const response = await axios.put(
+        `http://localhost:3000/api/users/${user.user._id}/update-color`,
+        { color },
+      );
+      navigate("/", { replace: true });
+    } catch (err) {
+      console.log(err.response.data.message);
+    }
+  }
   return (
-    <form className="themeModal relative flex w-[90%] flex-col items-center gap-4 rounded-lg bg-slate-300 p-3 ">
+    <form
+      className="themeModal relative flex w-[90%] flex-col items-center gap-4 rounded-lg bg-slate-300 p-3"
+      onSubmit={handleSubmit}
+    >
       <h1 className="text-lg font-semibold">Pick a profile color:</h1>
       <IoIosClose
-        className="absolute right-2 top-2 text-4xl"
+        className="absolute right-2 top-2 cursor-pointer text-4xl"
         onClick={() => setIsColorModalOpen(false)}
       />
 
@@ -25,6 +47,7 @@ export default function ColorModal({ setIsColorModalOpen }) {
             <button
               type="button"
               key={color.name}
+              onClick={() => setColor(color.name)}
               className={`${color.style} custom-btn h-[60px] w-[60px] rounded-full border-black focus:border-4`}
             ></button>
           ))}
@@ -32,6 +55,7 @@ export default function ColorModal({ setIsColorModalOpen }) {
       <button
         type="submit "
         className="themeModalButton self-center rounded-md px-4 py-2"
+        disabled={!color}
       >
         Submit changes
       </button>

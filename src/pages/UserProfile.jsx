@@ -28,7 +28,6 @@ export default function UserProfile() {
   if (!user) {
     return <p>Loading</p>;
   }
-
   const color = getColor(user.user.color);
 
   function handleClick() {
@@ -45,7 +44,10 @@ export default function UserProfile() {
           ></div>
           {isColorModalOpen && (
             <div className="absolute left-0 top-0 z-20 flex h-full w-full items-center justify-center bg-black bg-opacity-50">
-              <ColorModal setIsColorModalOpen={setIsColorModalOpen} />
+              <ColorModal
+                setIsColorModalOpen={setIsColorModalOpen}
+                user={user}
+              />
             </div>
           )}
           <p className="text-4xl  font-semibold">{user.user.username}</p>
