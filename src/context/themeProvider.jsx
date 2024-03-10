@@ -3,7 +3,9 @@ import { createContext, useContext, useState, useMemo, useEffect } from "react";
 const ThemeContext = createContext();
 
 export default function ThemeProvider({ children }) {
-  const [themeMode, setThemeMode] = useState(localStorage.getItem("theme"));
+  const [themeMode, setThemeMode] = useState(
+    localStorage.getItem("theme") || "light",
+  );
 
   function setTheme() {
     if (themeMode === "light") {
