@@ -17,6 +17,7 @@ export default function Nav() {
         </div>
       ) : (
         <div className="flex flex-row items-center justify-center gap-6 text-center text-sm">
+          <Link to="/posts">Posts</Link>
           <Link to="/sign-up">Sign Up</Link>
           <Link to="/login">Login</Link>
           <Link to="/about-us">About</Link>
