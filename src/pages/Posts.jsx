@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useState } from "react";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 
 function getSmallerText(text) {
   return text.slice(0, 100) + "...";
@@ -26,7 +27,8 @@ export default function Posts() {
       <h1 className=" pt-4 text-xl font-semibold">DISCOVER OUR LATEST POSTS</h1>
       {data &&
         data.posts.map((post) => (
-          <div
+          <Link
+            to={`/posts/${post._id}`}
             key={post._id}
             className=" relative flex max-w-[500px] flex-col  bg-slate-200  py-6 text-black shadow-xl "
           >
@@ -43,7 +45,7 @@ export default function Posts() {
                 <p>{post.date}</p>
               </div>
             </div>
-          </div>
+          </Link>
         ))}
     </div>
   );

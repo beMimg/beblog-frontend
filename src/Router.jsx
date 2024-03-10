@@ -11,6 +11,7 @@ import AboutUs from "./pages/AboutUs";
 import UserProfile from "./pages/UserProfile";
 import Homepage from "./pages/Homepage";
 import Posts from "./pages/Posts";
+import Post from "./pages/Post";
 
 const Routes = () => {
   const { token } = useAuth();
@@ -30,6 +31,10 @@ const Routes = () => {
     {
       path: "/user-profile",
       element: <UserProfile />,
+    },
+    {
+      path: "/posts/:postId",
+      element: <Post />,
     },
   ];
 
