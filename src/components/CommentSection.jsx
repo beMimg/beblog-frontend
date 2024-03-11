@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import CommentForm from "./CommentForm";
 
 export default function CommentSection({ post_id }) {
   const [comments, setComments] = useState();
@@ -29,6 +30,7 @@ export default function CommentSection({ post_id }) {
             {comments.length}
           </p>
         </div>
+        <CommentForm />
       </div>
     )
   );
