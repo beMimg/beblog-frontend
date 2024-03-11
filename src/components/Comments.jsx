@@ -1,5 +1,6 @@
 import { IoIosMore } from "react-icons/io";
 import { Link } from "react-router-dom";
+
 export default function Comments({ comments }) {
   return (
     <div className="flex flex-col gap-10">

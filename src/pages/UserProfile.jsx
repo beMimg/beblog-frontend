@@ -1,29 +1,14 @@
-import axios from "axios";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useTheme } from "../context/themeProvider";
 import getColor from "../functions/getColor";
 import ColorModal from "../components/ColorModal";
+import { useUser } from "../context/userProvider";
 
 export default function UserProfile() {
-  const [user, setUser] = useState();
   const [isColorModalOpen, setIsColorModalOpen] = useState(false);
 
   const { setTheme } = useTheme();
-
-  useEffect(() => {
-    const getUser = async () => {
-      try {
-        const response = await axios.get(
-          "http://localhost:3000/api/users/self",
-        );
-
-        setUser(response.data);
-      } catch (err) {
-        return;
-      }
-    };
-    getUser();
-  }, []);
+  const { user } = useUser();
 
   if (!user) {
     return <p>Loading</p>;
