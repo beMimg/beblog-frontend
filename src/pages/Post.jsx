@@ -1,10 +1,10 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import CommentSection from "../components/CommentSection";
 
 export default function Post() {
   const [post, setPost] = useState();
-  const [comments, setComments] = useState();
   const { post_id } = useParams();
 
   useEffect(() => {
@@ -16,16 +16,8 @@ export default function Post() {
         setPost(response.data.post);
       } catch (err) {}
     };
-    const getComments = async () => {
-      try {
-        const response = await axios.get(
-          `http://localhost:3000/api/posts/${post_id}/comments`,
-        );
-        setComments(response.data.comments);
-      } catch (err) {}
-    };
+
     getPosts();
-    getComments();
   }, []);
 
   return (
@@ -50,7 +42,7 @@ export default function Post() {
             </p>
           </div>
         </div>
-        <CommentSection />
+        <CommentSection post_id={post_id} />
       </>
     )
   );
