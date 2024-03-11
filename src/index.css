@@ -12,9 +12,11 @@
 .dark .themeButton {
   @apply bg-white text-black;
 }
+
 .dark .reverseTheme {
-  @apply text-black;
+  @apply bg-white text-neutral-950;
 }
+
 .dark .themeModalButton {
   @apply bg-black text-white;
 }
@@ -30,4 +32,8 @@
 }
 .light .themeModalButton {
   @apply bg-white text-black;
+}
+
+.bg-custom-gray {
+  background-color: #23242a;
 }
