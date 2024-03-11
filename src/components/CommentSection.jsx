@@ -1,12 +1,12 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useCallback } from "react";
 import CommentForm from "./CommentForm";
 import Comments from "./Comments";
 
 export default function CommentSection({ post_id }) {
   const [comments, setComments] = useState();
+  const [forceRerender, setForceRerender] = useState(1);
 
-  console.log(post_id);
   useEffect(() => {
     const getComments = async () => {
       try {
@@ -19,9 +19,8 @@ export default function CommentSection({ post_id }) {
       }
     };
     getComments();
-  }, []);
+  }, [forceRerender]);
 
-  console.log(comments);
   return (
     comments && (
       <div className="p-4">
@@ -32,7 +31,7 @@ export default function CommentSection({ post_id }) {
           </p>
         </div>
         <div className="mb-4">
-          <CommentForm />
+          <CommentForm post_id={post_id} setForceRerender={setForceRerender} />
         </div>
         <Comments comments={comments} />
       </div>
