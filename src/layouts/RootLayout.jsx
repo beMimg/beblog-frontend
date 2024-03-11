@@ -7,8 +7,8 @@ export default function Layout() {
   const { token } = useAuth();
 
   return (
-    <div className="flex min-h-screen flex-col font-inter">
-      <header className=" p-4">
+    <div className="flex min-h-screen flex-col  font-inter">
+      <header className="border-b-2  border-blue-500 p-4">
         <Nav />
       </header>
       <Outlet />

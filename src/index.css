@@ -3,6 +3,7 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Dark */
 .dark {
   @apply text-white dark:bg-neutral-950;
 }
@@ -13,6 +14,10 @@
   @apply bg-white text-black;
 }
 
+.dark .custom-post-background {
+  @apply bg-neutral-900 text-white;
+}
+
 .dark .reverseTheme {
   @apply bg-white text-neutral-950;
 }
@@ -21,6 +26,7 @@
   @apply bg-neutral-950 text-white;
 }
 
+/* Light */
 .light {
   @apply bg-white text-black;
 }
@@ -32,6 +38,9 @@
 }
 .light .themeModalButton {
   @apply bg-white text-black;
+}
+.light .custom-post-background {
+  @apply bg-slate-100 text-black;
 }
 
 .bg-custom-gray {

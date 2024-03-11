@@ -22,28 +22,30 @@ export default function Post() {
 
   return (
     post && (
-      <>
-        <div className="p-4">
-          <div className="mb-5 h-[300px] bg-blue-400"></div>
-          <div className="flex flex-col gap-6">
-            <div className="flex flex-row justify-between">
-              <div className="flex flex-col">
-                <h1 className="font-bold">{post.title}</h1>
-                <p className="font-light ">{post.topic}</p>
+      <div className="custom-post-background flex items-center justify-center">
+        <div className="themeModalButton self-center shadow-lg xl:max-w-[1100px]">
+          <div className="p-4 ">
+            <div className="mb-5 h-[300px] bg-blue-400 lg:h-[500px]"></div>
+            <div className="flex flex-col gap-6">
+              <div className="flex flex-row justify-between">
+                <div className="flex flex-col">
+                  <h1 className="font-bold">{post.title}</h1>
+                  <p className="font-light ">{post.topic}</p>
+                </div>
+                <p className="text-sm font-light">{post.formated_date}</p>
               </div>
-              <p className="text-sm font-light">{post.formated_date}</p>
+              <p className=" leading-relaxed">{post.text}</p>
+              <p>
+                This post was written by{" "}
+                <Link to="/" className="font-semibold">
+                  {post.author.username}
+                </Link>{" "}
+              </p>
             </div>
-            <p className=" leading-relaxed">{post.text}</p>
-            <p>
-              This post was written by{" "}
-              <Link to="/" className="font-semibold">
-                {post.author.username}
-              </Link>{" "}
-            </p>
           </div>
+          <CommentSection post_id={post_id} />
         </div>
-        <CommentSection post_id={post_id} />
-      </>
+      </div>
     )
   );
 }
