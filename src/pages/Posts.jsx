@@ -25,7 +25,8 @@ export default function Posts() {
         Discover our latest posts
       </h1>
       <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
-        {data && data.posts.map((post) => <PostCard post={post} />)}
+        {data &&
+          data.posts.map((post) => <PostCard post={post} key={post._id} />)}
       </div>
     </div>
   );
