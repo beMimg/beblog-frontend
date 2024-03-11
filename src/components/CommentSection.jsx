@@ -24,13 +24,13 @@ export default function CommentSection({ post_id }) {
   return (
     comments && (
       <div className="p-4">
-        <div className="relative">
+        <div className="relative mb-12 flex flex-col">
           <h1>Comments</h1>
           <p className="reverseTheme absolute left-[90px] top-[-2px] rounded-full p-0.5 text-xs">
             {comments.length}
           </p>
         </div>
-        <div className="mb-4">
+        <div className="mb-24">
           <CommentForm post_id={post_id} setForceRerender={setForceRerender} />
         </div>
         <Comments comments={comments} />

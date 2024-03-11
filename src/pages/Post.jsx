@@ -22,19 +22,19 @@ export default function Post() {
 
   return (
     post && (
-      <div className="custom-post-background flex items-center justify-center">
-        <div className="themeModalButton self-center shadow-lg xl:max-w-[1100px]">
+      <div className="font-sans flex items-center justify-center ">
+        <div className=" self-center  lg:max-w-[960px]">
           <div className="p-4 ">
             <div className="mb-5 h-[300px] bg-blue-400 lg:h-[500px]"></div>
-            <div className="flex flex-col gap-6">
+            <div className="flex flex-col gap-20">
               <div className="flex flex-row justify-between">
                 <div className="flex flex-col">
-                  <h1 className="font-bold">{post.title}</h1>
-                  <p className="font-light ">{post.topic}</p>
+                  <h1 className="text-4xl font-semibold">{post.title}</h1>
+                  <p className="">{post.topic}</p>
                 </div>
-                <p className="text-sm font-light">{post.formated_date}</p>
+                <p className="text-sm ">{post.formated_date}</p>
               </div>
-              <p className=" leading-relaxed">{post.text}</p>
+              <p className=" text-lg leading-relaxed ">{post.text}</p>
               <p>
                 This post was written by{" "}
                 <Link to="/" className="font-semibold">

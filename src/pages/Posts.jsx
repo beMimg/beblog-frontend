@@ -20,13 +20,15 @@ export default function Posts() {
   }, []);
 
   return (
-    <div className="flex flex-col gap-4 p-4 ">
-      <h1 className=" pl-2 pt-4 text-xl font-semibold">
-        Discover our latest posts
-      </h1>
-      <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
-        {data &&
-          data.posts.map((post) => <PostCard post={post} key={post._id} />)}
+    <div className="flex min-h-screen justify-center ">
+      <div className="flex flex-col gap-4 p-4 lg:w-[960px] ">
+        <h1 className=" pl-2 pt-4 text-3xl font-semibold">
+          Discover our latest posts
+        </h1>
+        <div className="flex flex-col gap-6 lg:gap-16">
+          {data &&
+            data.posts.map((post) => <PostCard post={post} key={post._id} />)}
+        </div>
       </div>
     </div>
   );

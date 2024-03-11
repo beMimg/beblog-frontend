@@ -7,7 +7,7 @@ export default function Comments({ comments }) {
       {comments &&
         comments.map((comment) => (
           <div
-            className="flex flex-col gap-3 border-b border-gray-400"
+            className=" mb-14 flex flex-col gap-3 border-b border-gray-400"
             key={comment._id}
           >
             <div className=" items-centergap-2 flex flex-row justify-between">

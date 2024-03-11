@@ -3,15 +3,16 @@ import { useTheme } from "../context/themeProvider";
 import getColor from "../functions/getColor";
 import ColorModal from "../components/ColorModal";
 import { useUser } from "../context/userProvider";
-import { useNavigate } from "react-router-dom";
+import { useAuth } from "../context/authProvider";
 
 export default function UserProfile() {
   const [isColorModalOpen, setIsColorModalOpen] = useState(false);
   const [isLoggingOut, setIsLoggingOut] = useState(false);
+  const { setToken } = useAuth();
 
   const { setTheme } = useTheme();
   const { user } = useUser();
-  const navigation = useNavigate();
+
   if (!user) {
     return <p>Loading</p>;
   }
@@ -24,7 +25,7 @@ export default function UserProfile() {
   function handleLogout() {
     localStorage.removeItem("token");
     navigation("/", { replace: true });
-    window.location.reload();
+    setToken();
   }
 
   return (

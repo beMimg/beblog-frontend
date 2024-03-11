@@ -21,11 +21,7 @@ async function postComment(post_id, comment) {
   }
 }
 
-export default function CommentForm({
-  post_id,
-  forceRerender,
-  setForceRerender,
-}) {
+export default function CommentForm({ post_id, setForceRerender }) {
   const [comment, setComment] = useState("");
 
   async function handleSubmit(e) {
