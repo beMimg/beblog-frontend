@@ -8,7 +8,7 @@ export default function Layout() {
 
   return (
     <div className="flex min-h-screen flex-col  font-inter">
-      <header className="border-b-2  border-blue-500 p-4">
+      <header className="sticky  top-0 z-20 border-b-2 border-blue-500 bg-black p-4">
         <Nav />
       </header>
       <Outlet />

@@ -5,7 +5,7 @@ export default function Nav() {
   const { token } = useAuth();
 
   return (
-    <nav className="flex flex-row justify-between">
+    <nav className=" flex flex-row justify-between ">
       <Link to="/" className=" font-bold ">
         beBlog
       </Link>
