@@ -4,14 +4,15 @@ import getColor from "../functions/getColor";
 import ColorModal from "../components/ColorModal";
 import { useUser } from "../context/userProvider";
 import { useAuth } from "../context/authProvider";
+import { useNavigate } from "react-router-dom";
 
 export default function UserProfile() {
   const [isColorModalOpen, setIsColorModalOpen] = useState(false);
-  const [isLoggingOut, setIsLoggingOut] = useState(false);
   const { setToken } = useAuth();
-
   const { setTheme } = useTheme();
   const { user } = useUser();
+  const navigation = useNavigate();
+  console.log(user);
 
   if (!user) {
     return <p>Loading</p>;

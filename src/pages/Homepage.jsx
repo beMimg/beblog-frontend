@@ -1,6 +1,9 @@
 import techImg from "../assets/tech-photo.jpg";
+import { useUser } from "../context/userProvider";
 
 export default function Homepage() {
+  const { user } = useUser();
+  console.log(user);
   return (
     <div className="flex  w-full flex-1 justify-center p-4">
       <div className="grid w-full grid-rows-[15%-70%-15%] items-center text-center">

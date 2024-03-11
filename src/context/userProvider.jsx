@@ -1,10 +1,12 @@
 import axios from "axios";
 import { createContext, useContext, useState, useMemo, useEffect } from "react";
+import { useAuth } from "./authProvider";
 
 const UserContext = createContext();
 
 export default function UserProvider({ children }) {
   const [user, setUser] = useState();
+  const { token } = useAuth();
 
   useEffect(() => {
     const getUser = async () => {
@@ -19,7 +21,7 @@ export default function UserProvider({ children }) {
       }
     };
     getUser();
-  }, []);
+  }, [token]);
 
   const contextValue = useMemo(() => {
     return { user };
