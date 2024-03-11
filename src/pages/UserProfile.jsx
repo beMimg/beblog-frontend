@@ -3,13 +3,15 @@ import { useTheme } from "../context/themeProvider";
 import getColor from "../functions/getColor";
 import ColorModal from "../components/ColorModal";
 import { useUser } from "../context/userProvider";
+import { useNavigate } from "react-router-dom";
 
 export default function UserProfile() {
   const [isColorModalOpen, setIsColorModalOpen] = useState(false);
+  const [isLoggingOut, setIsLoggingOut] = useState(false);
 
   const { setTheme } = useTheme();
   const { user } = useUser();
-
+  const navigation = useNavigate();
   if (!user) {
     return <p>Loading</p>;
   }
@@ -17,6 +19,12 @@ export default function UserProfile() {
 
   function handleClick() {
     setIsColorModalOpen(true);
+  }
+
+  function handleLogout() {
+    localStorage.removeItem("token");
+    navigation("/", { replace: true });
+    window.location.reload();
   }
 
   return (
@@ -41,8 +49,11 @@ export default function UserProfile() {
             <h1>{user.user.last_name}</h1>
           </div>
           <p>{user.user.email}</p>
-          <button className="themeButton rounded-lg px-6 py-1">
-            Edit Profile
+          <button
+            onClick={handleLogout}
+            className="themeButton rounded-lg px-6 py-1"
+          >
+            Logout
           </button>
         </div>
       )}
