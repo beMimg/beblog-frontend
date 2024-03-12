@@ -15,8 +15,6 @@ export default function UserProfile() {
   const { user, setUser } = useUser();
   const navigation = useNavigate();
 
-  console.log(user);
-
   if (!user) {
     return <p>Loading</p>;
   }
