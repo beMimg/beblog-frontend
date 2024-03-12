@@ -33,7 +33,11 @@ export default function CommentSection({ post_id }) {
         <div className="mb-24">
           <CommentForm post_id={post_id} setForceRerender={setForceRerender} />
         </div>
-        <Comments comments={comments} />
+        <Comments
+          comments={comments}
+          post_id={post_id}
+          setForceRerender={setForceRerender}
+        />
       </div>
     )
   );

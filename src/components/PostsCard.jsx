@@ -28,9 +28,9 @@ export default function PostCard({ post }) {
     >
       <div className="col-span-4 rounded-md bg-pink-200 md:col-span-5 lg:col-span-4"></div>
       <div className="col-span-6 flex flex-col justify-between p-7 md:col-span-5 lg:col-span-6 ">
-        <h1 className="w-full text-xl font-medium lg:text-2xl">{post.title}</h1>
+        <h1 className="w-full text-xl font-medium ">{post.title}</h1>
         <div className="flex flex-row justify-between">
-          <p className="reverseTheme w-min rounded-md bg-gray-700 px-6 text-sm ">
+          <p className="reverseTheme w-min self-center rounded-md bg-gray-700 px-6 text-center text-sm">
             {post.topic}
           </p>
           <div className="flex flex-row items-center gap-[2px] opacity-60">
@@ -39,10 +39,10 @@ export default function PostCard({ post }) {
           </div>
         </div>
         <div className="flex flex-row items-center justify-between">
-          <p className="text-xl font-light opacity-80">
+          <p className="text-md font-light opacity-80">
             {post.author.username}
           </p>
-          <p className="text-md opacity-40">{post.formated_date}</p>
+          <p className="text-sm opacity-40">{post.formated_date}</p>
         </div>
       </div>
     </Link>
