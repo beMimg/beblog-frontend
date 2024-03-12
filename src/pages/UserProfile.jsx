@@ -10,8 +10,9 @@ export default function UserProfile() {
   const [isColorModalOpen, setIsColorModalOpen] = useState(false);
   const { setToken } = useAuth();
   const { setTheme } = useTheme();
-  const { user } = useUser();
+  const { user, setUser } = useUser();
   const navigation = useNavigate();
+
   console.log(user);
 
   if (!user) {
@@ -25,8 +26,9 @@ export default function UserProfile() {
 
   function handleLogout() {
     localStorage.removeItem("token");
-    navigation("/", { replace: true });
+    navigation("/");
     setToken();
+    setUser();
   }
 
   return (
@@ -57,6 +59,7 @@ export default function UserProfile() {
           >
             Logout
           </button>
+          {user.user.admin && <p>hi</p>}
         </div>
       )}
       <button

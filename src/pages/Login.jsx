@@ -41,6 +41,8 @@ export default function Login() {
     } else {
       setToken(data.token);
       navigate("/", { replace: true });
+      // Force page reload to make sure User is fetched with recieved Token.
+      window.location.reload();
     }
   }
 

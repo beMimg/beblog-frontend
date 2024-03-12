@@ -26,7 +26,7 @@ export default function UserProvider({ children }) {
   }, []);
 
   const contextValue = useMemo(() => {
-    return { user };
+    return { user, setUser };
   }, [user]);
 
   return (
