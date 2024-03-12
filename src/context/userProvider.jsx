@@ -20,8 +20,10 @@ export default function UserProvider({ children }) {
         return;
       }
     };
-    getUser();
-  }, [token]);
+    if (token) {
+      getUser();
+    }
+  }, []);
 
   const contextValue = useMemo(() => {
     return { user };
