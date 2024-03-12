@@ -1,6 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 async function SignUpUser(credentials) {
   try {
@@ -47,7 +47,8 @@ export default function SignUp() {
       password_confirmation,
     });
     if (data.errors) {
-      return setErrors(data.errors);
+      setErrors(data.errors);
+      window.scrollTo(0, document.body.scrollHeight);
     } else {
       <p>sucess</p>;
       navigate("/login", { replace: true });
@@ -55,68 +56,91 @@ export default function SignUp() {
     }
   }
 
+  const inputStyle =
+    "rounded-md border border-gray-100 p-2 focus:border-blue-400 focus:outline-none";
+
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <div className="flex flex-col">
-          <label htmlFor="first name">First Name:</label>
-          <input
-            type="text"
-            name="first_name"
-            required
-            onChange={(e) => setFirstName(e.target.value)}
-          />
-        </div>
-        <div className="flex flex-col">
-          <label htmlFor="last_name">Last Name</label>
-          <input
-            type="text"
-            name="last_name"
-            required
-            onChange={(e) => setLastName(e.target.value)}
-          />
-        </div>
-        <div className="flex flex-col">
-          <label htmlFor="email">Email:</label>
-          <input
-            type="email"
-            name="email"
-            required
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </div>
-        <div className="flex flex-col">
-          <label htmlFor="username">Username:</label>
-          <input
-            type="text"
-            name="username"
-            required
-            minLength={4}
-            onChange={(e) => setUsername(e.target.value)}
-          />
-        </div>
-        <div className="flex flex-col">
-          <label htmlFor="password">Password:</label>
-          <input
-            type="password"
-            name="password"
-            minLength={6}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </div>
-        <div className="flex flex-col">
-          <label htmlFor="password confirmation">Password Confirmation:</label>
-          <input
-            type="password"
-            name="password_confirmation"
-            minLength={6}
-            onChange={(e) => setPasswordConfirmation(e.target.value)}
-          />
-        </div>
-        <button type="submit">Register</button>
+    <div className="flex flex-col items-center justify-center gap-6 p-4">
+      <div className="flex flex-col items-center justify-center ">
+        <h1 className="text-lg font-bold">Sign Up</h1>
+        <p className="text-center text-sm">
+          Let's get started. View posts and comment by creating an account.
+        </p>
+      </div>
+      <form onSubmit={handleSubmit} className="flex w-full flex-col gap-4">
+        <input
+          type="text"
+          name="first_name"
+          required
+          onChange={(e) => setFirstName(e.target.value)}
+          placeholder="First name"
+          className={`${inputStyle}`}
+        />
+        <input
+          type="text"
+          name="last_name"
+          required
+          onChange={(e) => setLastName(e.target.value)}
+          placeholder="Last name"
+          className={`${inputStyle}`}
+        />
+        <input
+          type="email"
+          name="email"
+          required
+          onChange={(e) => setEmail(e.target.value)}
+          placeholder="Email"
+          className={`${inputStyle}`}
+        />
+        <input
+          type="text"
+          name="username"
+          required
+          minLength={4}
+          onChange={(e) => setUsername(e.target.value)}
+          placeholder="Username"
+          className={`${inputStyle}`}
+        />
+        <input
+          type="password"
+          name="password"
+          minLength={6}
+          onChange={(e) => setPassword(e.target.value)}
+          placeholder="Password"
+          className={`${inputStyle}`}
+        />
+        <input
+          type="password"
+          name="password_confirmation"
+          minLength={6}
+          onChange={(e) => setPasswordConfirmation(e.target.value)}
+          placeholder="Password confirmation"
+          className={`${inputStyle}`}
+        />
+        <button
+          type="submit"
+          className="w-full rounded-md bg-blue-600 p-2 text-white"
+        >
+          Sign Up
+        </button>
       </form>
-      <ul>
-        {errors && errors.map((error) => <li key={error.msg}>{error.msg}</li>)}
+      <p className="text-center text-sm">
+        By signing up to create an account you accept Terms that you're an
+        incredible person.
+      </p>
+      <p className="text-gray-500">
+        Already have an account?{" "}
+        <Link to="/login" className="text-blue-600 underline">
+          Log In
+        </Link>
+      </p>
+      <ul className="ml-4 list-disc">
+        {errors &&
+          errors.map((error) => (
+            <li key={error.msg} className="text-xs text-red-600">
+              {error.msg}
+            </li>
+          ))}
       </ul>
     </div>
   );
