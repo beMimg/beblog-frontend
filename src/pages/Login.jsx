@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useAuth } from "../context/authProvider";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 async function loginUser(credentials) {
   try {
@@ -45,25 +45,43 @@ export default function Login() {
   }
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <label htmlFor="username">Name:</label>
+    <div className="relative flex flex-1 flex-col items-center justify-center gap-6 p-4 lg:w-[960px] lg:self-center">
+      <h1 className="text-lg font-bold">Log In</h1>
+      <form onSubmit={handleSubmit} className="flex w-full flex-col gap-4">
         <input
           type="text"
           name="username"
           required
           onChange={(e) => setUsername(e.target.value)}
+          className="inputStyleDefault"
+          placeholder="Username"
         />
-        <label htmlFor="password">Password:</label>
         <input
           type="password"
           name="password"
           required
           onChange={(e) => setPassword(e.target.value)}
+          placeholder="Password"
+          className="inputStyleDefault"
         />
-        <button type="submit">Login</button>
+        <button
+          className="w-full rounded-md bg-blue-600 p-2 text-white"
+          type="submit"
+        >
+          Login
+        </button>
       </form>
-      <div>{errors && <p>{errors}</p>}</div>
+      <p className="text-center text-gray-500">
+        <Link to="/sign-up" className="text-blue-600 underline">
+          Create a free account
+        </Link>{" "}
+        or log in to start using beBlog
+      </p>
+      <ul className="bottom-10 ml-4 list-disc lg:absolute lg:text-lg">
+        {errors && (
+          <li className="text-xs text-red-600 lg:text-[15px]">{errors}</li>
+        )}
+      </ul>
     </div>
   );
 }

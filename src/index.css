@@ -46,3 +46,7 @@
 .bg-custom-gray {
   background-color: #23242a;
 }
+
+.inputStyleDefault {
+  @apply rounded-md border border-gray-100 p-2 focus:border-blue-400 focus:outline-none;
+}

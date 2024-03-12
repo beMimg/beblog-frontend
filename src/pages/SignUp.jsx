@@ -56,11 +56,8 @@ export default function SignUp() {
     }
   }
 
-  const inputStyle =
-    "rounded-md border border-gray-100 p-2 focus:border-blue-400 focus:outline-none";
-
   return (
-    <div className="flex flex-col items-center justify-center gap-6 p-4">
+    <div className="relative flex flex-1 flex-col items-center justify-center gap-6 p-4 lg:w-[960px] lg:self-center">
       <div className="flex flex-col items-center justify-center ">
         <h1 className="text-lg font-bold">Sign Up</h1>
         <p className="text-center text-sm">
@@ -74,7 +71,7 @@ export default function SignUp() {
           required
           onChange={(e) => setFirstName(e.target.value)}
           placeholder="First name"
-          className={`${inputStyle}`}
+          className={`inputStyleDefault`}
         />
         <input
           type="text"
@@ -82,7 +79,7 @@ export default function SignUp() {
           required
           onChange={(e) => setLastName(e.target.value)}
           placeholder="Last name"
-          className={`${inputStyle}`}
+          className={`inputStyleDefault`}
         />
         <input
           type="email"
@@ -90,7 +87,7 @@ export default function SignUp() {
           required
           onChange={(e) => setEmail(e.target.value)}
           placeholder="Email"
-          className={`${inputStyle}`}
+          className={`inputStyleDefault`}
         />
         <input
           type="text"
@@ -99,7 +96,7 @@ export default function SignUp() {
           minLength={4}
           onChange={(e) => setUsername(e.target.value)}
           placeholder="Username"
-          className={`${inputStyle}`}
+          className={`inputStyleDefault`}
         />
         <input
           type="password"
@@ -107,7 +104,7 @@ export default function SignUp() {
           minLength={6}
           onChange={(e) => setPassword(e.target.value)}
           placeholder="Password"
-          className={`${inputStyle}`}
+          className={`inputStyleDefault`}
         />
         <input
           type="password"
@@ -115,7 +112,7 @@ export default function SignUp() {
           minLength={6}
           onChange={(e) => setPasswordConfirmation(e.target.value)}
           placeholder="Password confirmation"
-          className={`${inputStyle}`}
+          className={`inputStyleDefault`}
         />
         <button
           type="submit"
@@ -134,10 +131,10 @@ export default function SignUp() {
           Log In
         </Link>
       </p>
-      <ul className="ml-4 list-disc">
+      <ul className="bottom-10 ml-4 list-disc lg:absolute lg:text-lg">
         {errors &&
           errors.map((error) => (
-            <li key={error.msg} className="text-xs text-red-600">
+            <li key={error.msg} className="text-xs text-red-600 lg:text-[15px]">
               {error.msg}
             </li>
           ))}
