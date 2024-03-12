@@ -8,26 +8,39 @@ export default function CreatePost({ setIsCreatePostOpen }) {
   const [topic, setTopic] = useState();
   const [text, setText] = useState();
   const [isPublished, setIsPublish] = useState(true);
+  const [img, setImg] = useState();
+
+  console.log(img);
+
   const navigation = useNavigate();
+
   async function handleSubmit(e) {
     e.preventDefault();
     try {
+      const formData = new FormData();
+      formData.append("title", title);
+      formData.append("topic", topic);
+      formData.append("text", text);
+      formData.append("isPublished", isPublished);
+      formData.append("img", img);
+
       const response = await axios.post(
         "http://localhost:3000/api/posts",
-        { title: title, topic: topic, text: text, isPublished: isPublished },
+        formData,
         {
           headers: {
-            "Content-Type": "application/json",
+            "Content-Type": "multipart/form-data",
           },
         },
       );
       navigation(`/posts/${response.data.post._id}`, { replace: true });
       return;
     } catch (err) {
-      return err;
+      console.log(err.response.data);
     }
   }
 
+  console.log(img);
   return (
     <div className="w-[960px] p-4">
       <h1 className="mb-4 text-center text-xl font-semibold text-white">
@@ -73,6 +86,13 @@ export default function CreatePost({ setIsCreatePostOpen }) {
           <option value={true}>Public</option>
           <option value={false}>Private</option>
         </select>
+        <input
+          type="file"
+          name="img"
+          accept="image/png, image/jpeg"
+          className="text-white"
+          onChange={(e) => setImg(e.target.files[0])}
+        />
         <button
           type="submit"
           className="w-full rounded-md bg-blue-600 p-2 text-white "
