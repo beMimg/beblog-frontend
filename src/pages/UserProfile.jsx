@@ -26,10 +26,12 @@ export default function UserProfile() {
 
   function handleLogout() {
     localStorage.removeItem("token");
+    localStorage.removeItem("theme");
     navigation("/");
     setToken();
     setUser();
-    setTheme("light");
+    setTheme();
+    window.location.reload();
   }
 
   return (

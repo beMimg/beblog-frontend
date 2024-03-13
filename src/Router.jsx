@@ -12,7 +12,7 @@ import UserProfile from "./pages/UserProfile";
 import Homepage from "./pages/Homepage";
 import Posts from "./pages/Posts";
 import Post from "./pages/Post";
-import PageNotFound from "./pages/PageNotFound";
+import NotFound from "./pages/NotFound";
 import AccessDenied from "./pages/AccessDenied";
 
 const Routes = () => {
@@ -52,7 +52,7 @@ const Routes = () => {
     {
       path: "/",
       element: <RootLayout />,
-      errorElement: token ? <PageNotFound /> : <AccessDenied />,
+      errorElement: token ? <NotFound /> : <AccessDenied />,
       children: [
         { index: true, element: <Homepage /> },
         ...(!token ? routesForNotAuthenticatedOnly : []),
