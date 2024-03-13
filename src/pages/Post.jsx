@@ -24,28 +24,27 @@ export default function Post() {
     post && (
       <div className="font-sans flex items-center justify-center ">
         <div className=" self-center lg:w-[960px]">
-          <div className="p-4 ">
+          <div className="flex flex-col gap-12 p-5">
+            <div>
+              <h1 className="text-2xl font-semibold">{post.title}</h1>
+              <div className="flex flex-row gap-2">
+                <p>Topics:</p>
+                <p className="">{post.topic}</p>
+              </div>
+            </div>
             <img
-              className="mb-6 flex w-full rounded-md object-cover object-center lg:h-[500px]"
+              className="flex self-center  rounded-md object-cover object-center lg:h-[500px] lg:w-[90%]"
               src={post.imgSrc}
               alt=""
             />
-            <div className="flex flex-col gap-20">
-              <div className="flex flex-row justify-between">
-                <div className="flex flex-col">
-                  <h1 className="text-4xl font-semibold">{post.title}</h1>
-                  <p className="">{post.topic}</p>
-                </div>
-                <p className="text-sm ">{post.formated_date}</p>
+            <div className="flex flex-row items-center justify-between">
+              <div className="flex flex-row gap-2">
+                <p>Author: </p>
+                <p className="font-semibold">{post.author.username}</p>
               </div>
-              <p className=" text-lg leading-relaxed ">{post.text}</p>
-              <p>
-                This post was written by{" "}
-                <Link to="/" className="font-semibold">
-                  {post.author.username}
-                </Link>{" "}
-              </p>
+              <p className="text-sm ">{post.formated_date}</p>
             </div>
+            <p className="text-md leading-relaxed md:text-lg">{post.text}</p>
           </div>
           <CommentSection post_id={post_id} />
         </div>
