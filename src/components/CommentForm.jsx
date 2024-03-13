@@ -36,7 +36,7 @@ export default function CommentForm({ post_id, setForceRerender }) {
   return (
     <form
       onSubmit={handleSubmit}
-      className=" flex flex-col rounded-lg border-2 border-blue-500 px-2 pt-2"
+      className=" animate-fade-in flex flex-col rounded-lg border-2 border-blue-500 px-2 pt-2"
     >
       <input
         type="text"

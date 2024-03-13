@@ -2,10 +2,13 @@ import axios from "axios";
 import { useEffect, useState, useCallback } from "react";
 import CommentForm from "./CommentForm";
 import Comments from "./Comments";
+import Loading from "./Loading";
 
 export default function CommentSection({ post_id }) {
   const [comments, setComments] = useState();
   const [forceRerender, setForceRerender] = useState(1);
+  const [error, setError] = useState();
+  const [isLoading, setIsLoading] = useState();
 
   useEffect(() => {
     const getComments = async () => {
@@ -14,12 +17,29 @@ export default function CommentSection({ post_id }) {
           `http://localhost:3000/api/posts/${post_id}/comments`,
         );
         setComments(response.data.comments);
+        return;
       } catch (err) {
-        console.log(err);
+        setError("Apologies, there was an issue retrieving the comments");
+        return;
+      } finally {
+        setIsLoading(false);
+        return;
       }
     };
     getComments();
   }, [forceRerender]);
+
+  if (error) {
+    return <h2>{error}</h2>;
+  }
+
+  if (isLoading) {
+    return (
+      <div>
+        <Loading />
+      </div>
+    );
+  }
 
   return (
     comments && (

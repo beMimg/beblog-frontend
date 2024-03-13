@@ -57,7 +57,10 @@ export default function Comment({ comment, post_id, setForceRerender }) {
       {!isEditFormOpen ? (
         <p>{comment.text}</p>
       ) : (
-        <form className="flex flex-row gap-5" onSubmit={handleEditSubmit}>
+        <form
+          className="animate-fade-in flex flex-row gap-5"
+          onSubmit={handleEditSubmit}
+        >
           <input
             type="text"
             value={editComment}
