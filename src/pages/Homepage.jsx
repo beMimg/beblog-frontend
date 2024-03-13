@@ -4,11 +4,13 @@ import { GoArrowDownRight } from "react-icons/go";
 
 export default function Homepage() {
   return (
-    <div className="flex  w-full flex-1 justify-center p-5">
+    <div className="flex  w-full flex-1 justify-center overflow-hidden p-5">
       <div className="flex flex-col justify-around ">
-        <div className=" pt-5">
-          <h1 className=" text-2xl font-semibold">Unraveling the Code:</h1>
-          <h2 className="text-lg text-blue-500">
+        <div className=" relative pt-5 ">
+          <h1 className=" animate-left-to-right  text-2xl font-semibold">
+            Unraveling the Code:
+          </h1>
+          <h2 className="animate-right-to-left absolute text-lg text-blue-500">
             Where Creativity Meets Functionality
           </h2>
         </div>
@@ -21,12 +23,12 @@ export default function Homepage() {
           <img
             src={techImg}
             alt="image with a computer"
-            className="flex h-[200px] w-full  self-center rounded-md object-cover object-center md:h-[500px] xl:w-[80%]"
+            className="animate-fade-in flex h-[200px] w-full  self-center rounded-md object-cover object-center md:h-[500px] xl:w-[80%]"
           />
         </div>
         <Link
           to="/posts"
-          className="flex flex-row items-center self-center rounded-md bg-blue-700 px-5 py-2 text-white lg:gap-4"
+          className="animate-buttom-to-top flex flex-row items-center self-center rounded-md bg-blue-700 px-5 py-2 text-white lg:gap-4"
         >
           <p className="text-sm uppercase ">
             A place where we can talk about coding

@@ -37,7 +37,7 @@ export default function ColorModal({ setIsColorModalOpen, user }) {
     >
       <h1 className="text-lg font-semibold">Pick a profile color:</h1>
       <IoIosClose
-        className="absolute right-2 top-2 cursor-pointer text-4xl"
+        className="absolute right-2 top-2 cursor-pointer text-4xl transition-all hover:scale-125"
         onClick={() => setIsColorModalOpen(false)}
       />
 
@@ -48,13 +48,13 @@ export default function ColorModal({ setIsColorModalOpen, user }) {
               type="button"
               key={color.name}
               onClick={() => setColor(color.name)}
-              className={`${color.style} custom-btn h-[60px] w-[60px] justify-self-center rounded-full border-black focus:border-4`}
+              className={`${color.style} custom-btn h-[60px] w-[60px] justify-self-center rounded-full border-black transition-all hover:scale-105 focus:border-4`}
             ></button>
           ))}
       </div>
       <button
         type="submit "
-        className="themeModalButton self-center rounded-md px-4 py-2"
+        className="themeModalButton cursor-pointer self-center rounded-md px-4 py-2 transition-all hover:scale-105"
         disabled={!color}
       >
         Submit changes

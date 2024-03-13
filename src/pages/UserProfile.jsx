@@ -35,12 +35,12 @@ export default function UserProfile() {
   }
 
   return (
-    <div className="p-4">
+    <div className="animate-fade-in p-4">
       {user && (
         <div className="flex h-full flex-col items-center justify-center gap-4 pt-4">
           <div
             onClick={handleClick}
-            className={`h-20 w-20 cursor-pointer rounded-full border-2 ${color}`}
+            className={`h-20 w-20 cursor-pointer rounded-full border-2 ${color} transition-all hover:scale-125`}
           ></div>
           {isColorModalOpen && (
             <div className="absolute left-0 top-0 z-20 flex h-full w-full items-center justify-center bg-black bg-opacity-50">
@@ -58,7 +58,7 @@ export default function UserProfile() {
           <p>{user.user.email}</p>
           {user.user.admin && (
             <button
-              className="themeButton rounded-lg px-6 py-1"
+              className="themeButton rounded-lg px-6 py-1 transition-all hover:scale-105"
               onClick={() => setIsCreatePostOpen(true)}
             >
               Create a Post
@@ -66,7 +66,7 @@ export default function UserProfile() {
           )}
           <button
             onClick={handleLogout}
-            className="themeButton rounded-lg px-6 py-1"
+            className="themeButton rounded-lg px-6 py-1 transition-all hover:scale-105"
           >
             Logout
           </button>
@@ -78,7 +78,7 @@ export default function UserProfile() {
         </div>
       )}
       <button
-        className="themeButton absolute bottom-4 rounded-md px-2 py-0.5"
+        className="themeButton animate-left-to-right absolute bottom-4 rounded-md px-2 py-0.5 transition-all hover:scale-105"
         onClick={setTheme}
       >
         Toggle Theme

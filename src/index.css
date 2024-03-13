@@ -89,3 +89,6 @@
 .transitionsNavLinks {
   @apply transition-all  hover:scale-125;
 }
+
+.test {
+}

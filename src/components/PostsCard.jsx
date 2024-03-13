@@ -24,7 +24,7 @@ export default function PostCard({ post }) {
     <Link
       to={`/posts/${post._id}`}
       key={post._id}
-      className="reverseTheme relative flex h-36 w-full grid-cols-10 flex-row justify-between rounded-md p-4 shadow-md md:h-40 lg:max-w-full"
+      className="animate-fade-in reverseTheme relative flex h-36 w-full grid-cols-10 flex-row justify-between rounded-md p-4 shadow-md transition-all hover:scale-105 md:h-40 lg:max-w-full"
     >
       <div className="flex flex-col justify-between">
         <h1 className="w-full font-medium lg:text-xl ">{post.title}</h1>
