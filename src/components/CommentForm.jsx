@@ -50,7 +50,7 @@ export default function CommentForm({ post_id, setForceRerender }) {
       <div className="  flex  items-center justify-end border-t border-gray-400 p-2">
         <button
           type="submit "
-          className="rounded-md bg-blue-500 px-2  py-2 text-center text-sm uppercase text-white"
+          className="rounded-md bg-blue-500 px-2  py-2 text-center text-sm uppercase text-white transition-all hover:scale-105"
         >
           Send
         </button>

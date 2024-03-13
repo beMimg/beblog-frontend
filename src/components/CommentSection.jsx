@@ -21,10 +21,9 @@ export default function CommentSection({ post_id }) {
     getComments();
   }, [forceRerender]);
 
-  console.log(comments);
   return (
     comments && (
-      <div className="p-4">
+      <div className="animate-fade-in p-4">
         <div className="relative flex flex-col pl-1">
           <h1>Comments</h1>
           <p className="reverseTheme absolute left-[90px] top-[-2px] rounded-full p-0.5 text-xs">

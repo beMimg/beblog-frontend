@@ -22,7 +22,7 @@ export default function Post() {
 
   return (
     post && (
-      <div className="font-sans flex items-center justify-center ">
+      <div className="font-sans animate-fade-in flex items-center justify-center">
         <div className=" self-center lg:w-[960px]">
           <div className="flex flex-col gap-12 p-5">
             <div>
@@ -46,7 +46,7 @@ export default function Post() {
             </div>
             <p className="text-md leading-relaxed md:text-lg">{post.text}</p>
           </div>
-          <CommentSection post_id={post_id} />
+          <CommentSection className="animate-fade-in" post_id={post_id} />
         </div>
       </div>
     )

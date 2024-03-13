@@ -36,7 +36,7 @@ export default function Comment({ comment, post_id, setForceRerender }) {
 
   return (
     <div
-      className=" mb-14 flex flex-col gap-3 border-b border-gray-400"
+      className=" mb-14 flex flex-col gap-3 border-b border-gray-400 transition-all hover:translate-x-2"
       key={comment._id}
     >
       <div className=" items-centergap-2 flex flex-row justify-between">
@@ -48,7 +48,10 @@ export default function Comment({ comment, post_id, setForceRerender }) {
           <h2 className=" font-medium">{comment.author.username}</h2>
         </div>
         {comment.author._id === user.user._id && (
-          <CiEdit className="cursor-pointer text-xl" onClick={handleEditForm} />
+          <CiEdit
+            className="cursor-pointer text-xl transition-all hover:scale-125"
+            onClick={handleEditForm}
+          />
         )}
       </div>
       {!isEditFormOpen ? (
@@ -60,11 +63,11 @@ export default function Comment({ comment, post_id, setForceRerender }) {
             value={editComment}
             onChange={(e) => setEditComment(e.target.value)}
             placeholder={comment.text}
-            className="themeModalButton my-2 w-full p-2"
+            className="themeModalButton my-2 w-full rounded-md p-2"
           />
           <button
             type="submit"
-            className="rounded-md bg-blue-500 px-2  text-center text-sm uppercase text-white"
+            className="rounded-md bg-blue-500 px-2 text-center text-sm uppercase text-white transition-all hover:scale-105"
           >
             Edit
           </button>
