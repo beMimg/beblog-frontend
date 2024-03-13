@@ -50,7 +50,6 @@ export default function SignUp() {
       setErrors(data.errors);
       window.scrollTo(0, document.body.scrollHeight);
     } else {
-      <p>sucess</p>;
       navigate("/login", { replace: true });
       return;
     }

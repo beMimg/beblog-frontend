@@ -1,18 +1,24 @@
 import axios from "axios";
 import { useState } from "react";
 import { useEffect } from "react";
-import { Link } from "react-router-dom";
 import PostCard from "../components/PostsCard";
+import Loading from "../components/Loading";
 
 export default function Posts() {
   const [data, setData] = useState();
-
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState(false);
   useEffect(() => {
     const getPosts = async () => {
       try {
         const response = await axios.get("http://localhost:3000/api/posts");
         setData(response.data);
+        return;
       } catch (err) {
+        setError("Apologies, there was an issue retrieving the posts");
+        return;
+      } finally {
+        setIsLoading(false);
         return;
       }
     };
@@ -26,6 +32,12 @@ export default function Posts() {
           Discover our latest posts
         </h1>
         <div className="flex flex-col gap-4 lg:gap-12">
+          {isLoading && (
+            <div className="self-center ">
+              <Loading />
+            </div>
+          )}
+          {error && <h2>{error}</h2>}
           {data &&
             data.posts.map((post) => <PostCard post={post} key={post._id} />)}
         </div>
