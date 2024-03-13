@@ -70,7 +70,6 @@ export default function Comment({ comment, post_id, setForceRerender }) {
           </button>
         </form>
       )}
-
       <p className="self-end pb-2 text-sm text-gray-500">
         {comment.formated_date}
       </p>
