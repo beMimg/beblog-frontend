@@ -20,13 +20,23 @@ export default function PostCard({ post }) {
     getComments();
   }, []);
 
+  // function getImgSrc(post) {
+  //   const imgData = Buffer.from(post.img.data).toString("base64");
+  //   const imgSrc = `data:${post.img.contentType};base64,${imgData}`;
+
+  //   return imgSrc;
+  // }
+
   return (
     <Link
       to={`/posts/${post._id}`}
       key={post._id}
       className=" relative grid h-36 max-w-[400px] grid-cols-10 rounded-xl  border border-blue-500 p-2.5 shadow-md md:h-56 lg:h-72 lg:max-w-full"
     >
-      <div className="col-span-4 rounded-md bg-pink-200 md:col-span-5 lg:col-span-4"></div>
+      <div
+        // src={getImgSrc(post)}
+        className="col-span-4 rounded-md bg-pink-200 md:col-span-5 lg:col-span-4"
+      ></div>
       <div className="col-span-6 flex flex-col justify-between p-1 md:col-span-5 lg:col-span-6 lg:p-7">
         <h1 className="w-full font-medium lg:text-xl ">{post.title}</h1>
         <div className="flex flex-row justify-between">

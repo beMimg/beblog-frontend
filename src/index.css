@@ -5,7 +5,23 @@
 
 /* Dark */
 .dark {
-  @apply text-white dark:bg-neutral-950;
+  /* @apply text-white dark:bg-neutral-950; */
+  color: white;
+  background-image: linear-gradient(
+    to bottom,
+    #000000,
+    #000000,
+    #000000,
+    #000000,
+    #000000,
+    #0a0306,
+    #12060d,
+    #170a13,
+    #1e111f,
+    #20172e,
+    #1b1f3e,
+    #00284f
+  );
 }
 .dark input {
   @apply text-black;
@@ -28,7 +44,23 @@
 
 /* Light */
 .light {
-  @apply bg-white text-black;
+  /* @apply bg-white text-black; */
+  color: black;
+  background-image: linear-gradient(
+    to bottom,
+    #ffffff,
+    #ffffff,
+    #ffffff,
+    #ffffff,
+    #ffffff,
+    #fbfbfe,
+    #f6f6fe,
+    #f1f2fd,
+    #e3e9fc,
+    #d2e1fc,
+    #bfd9fb,
+    #a8d2f9
+  );
 }
 .light .themeButton {
   @apply bg-black text-white;
@@ -52,4 +84,8 @@
 }
 .no-resize {
   resize: none;
+}
+
+.transitionsNavLinks {
+  @apply transition-all  hover:scale-125;
 }
