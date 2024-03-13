@@ -64,7 +64,7 @@ export default function Comment({ comment, post_id, setForceRerender }) {
           />
           <button
             type="submit"
-            className="rounded-md bg-blue-500 px-2 py-[1px] text-center"
+            className="rounded-md bg-blue-500 px-2  text-center text-sm uppercase text-white"
           >
             Edit
           </button>

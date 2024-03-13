@@ -44,12 +44,13 @@ export default function CommentForm({ post_id, setForceRerender }) {
         maxLength={200}
         className="themeModalButton my-2 w-full p-2"
         value={comment}
+        placeholder="Write a comment..."
         onChange={(e) => setComment(e.target.value)}
       />
       <div className="  flex  items-center justify-end border-t border-gray-400 p-2">
         <button
           type="submit "
-          className="rounded-md bg-blue-500 px-2 py-2 text-center"
+          className="rounded-md bg-blue-500 px-2  py-2 text-center text-sm uppercase text-white"
         >
           Send
         </button>
