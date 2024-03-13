@@ -6,6 +6,7 @@ import { useUser } from "../context/userProvider";
 import { useAuth } from "../context/authProvider";
 import { useNavigate } from "react-router-dom";
 import CreatePost from "../components/CreatePost";
+import Loading from "../components/Loading";
 
 export default function UserProfile() {
   const [isColorModalOpen, setIsColorModalOpen] = useState(false);
@@ -16,7 +17,11 @@ export default function UserProfile() {
   const navigation = useNavigate();
 
   if (!user) {
-    return <p>Loading</p>;
+    return (
+      <div className="flex items-center justify-center p-4">
+        <Loading />
+      </div>
+    );
   }
   const color = getColor(user.user.color);
 
