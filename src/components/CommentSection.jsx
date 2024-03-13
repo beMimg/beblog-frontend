@@ -14,7 +14,7 @@ export default function CommentSection({ post_id }) {
     const getComments = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:3000/api/posts/${post_id}/comments`,
+          `https://backendblogapi-production.up.railway.app/api/posts/${post_id}/comments`,
         );
         setComments(response.data.comments);
         return;

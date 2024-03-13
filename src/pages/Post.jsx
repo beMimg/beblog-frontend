@@ -15,7 +15,7 @@ export default function Post() {
     const getPosts = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:3000/api/posts/${post_id}`,
+          `https://backendblogapi-production.up.railway.app/api/posts/${post_id}`,
         );
         setPost(response.data.post);
         return;
@@ -30,7 +30,7 @@ export default function Post() {
   }, [post_id]);
 
   return post && isLoading === false ? (
-    <div className="font-sans animate-fade-in flex items-center justify-center">
+    <div className="font-sans flex animate-fade-in items-center justify-center">
       <div className=" self-center lg:w-[960px]">
         <div className="flex flex-col gap-12 p-5">
           <div>

@@ -25,7 +25,7 @@ export default function CreatePost({ setIsCreatePostOpen }) {
       formData.append("img", img);
 
       const response = await axios.post(
-        "http://localhost:3000/api/posts",
+        "https://backendblogapi-production.up.railway.app/api/posts",
         formData,
         {
           headers: {

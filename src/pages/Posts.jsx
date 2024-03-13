@@ -12,7 +12,9 @@ export default function Posts() {
   useEffect(() => {
     const getPosts = async () => {
       try {
-        const response = await axios.get("http://localhost:3000/api/posts");
+        const response = await axios.get(
+          "https://backendblogapi-production.up.railway.app/api/posts",
+        );
         setData(response.data);
         return;
       } catch (err) {

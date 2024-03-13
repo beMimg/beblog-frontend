@@ -22,7 +22,7 @@ export default function ColorModal({ setIsColorModalOpen, user }) {
     e.preventDefault();
     try {
       const response = await axios.put(
-        `http://localhost:3000/api/users/${user.user._id}/update-color`,
+        `https://backendblogapi-production.up.railway.app/api/users/${user.user._id}/update-color`,
         { color },
       );
       navigate(0);

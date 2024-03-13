@@ -5,7 +5,7 @@ import { useState } from "react";
 async function postComment(post_id, comment) {
   try {
     const response = await axios.post(
-      `http://localhost:3000/api/posts/${post_id}/comments`,
+      `https://backendblogapi-production.up.railway.app/api/posts/${post_id}/comments`,
       { text: comment },
       {
         headers: {
@@ -36,7 +36,7 @@ export default function CommentForm({ post_id, setForceRerender }) {
   return (
     <form
       onSubmit={handleSubmit}
-      className=" animate-fade-in flex flex-col rounded-lg border-2 border-blue-500 px-2 pt-2"
+      className=" flex animate-fade-in flex-col rounded-lg border-2 border-blue-500 px-2 pt-2"
     >
       <input
         type="text"

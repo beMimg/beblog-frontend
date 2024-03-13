@@ -17,7 +17,7 @@ export default function Comment({ comment, post_id, setForceRerender }) {
     e.preventDefault();
     try {
       const response = await axios.put(
-        `http://localhost:3000/api/posts/${post_id}/comments/${comment._id}`,
+        `https://backendblogapi-production.up.railway.app/api/posts/${post_id}/comments/${comment._id}`,
         { text: editComment },
         {
           headers: {
@@ -58,7 +58,7 @@ export default function Comment({ comment, post_id, setForceRerender }) {
         <p>{comment.text}</p>
       ) : (
         <form
-          className="animate-fade-in flex flex-row gap-5"
+          className="flex animate-fade-in flex-row gap-5"
           onSubmit={handleEditSubmit}
         >
           <input

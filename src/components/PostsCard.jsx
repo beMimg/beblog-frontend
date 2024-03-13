@@ -10,7 +10,7 @@ export default function PostCard({ post }) {
     const getComments = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:3000/api/posts/${post._id}/comments/count`,
+          `https://backendblogapi-production.up.railway.app/api/posts/${post._id}/comments/count`,
         );
         setCount(response.data.commentsCount);
       } catch (err) {
@@ -24,7 +24,7 @@ export default function PostCard({ post }) {
     <Link
       to={`/posts/${post._id}`}
       key={post._id}
-      className="animate-fade-in reverseTheme relative flex h-36 w-full grid-cols-10 flex-row justify-between rounded-md p-4 shadow-md transition-all hover:scale-105 md:h-40 lg:max-w-full"
+      className="reverseTheme relative flex h-36 w-full animate-fade-in grid-cols-10 flex-row justify-between rounded-md p-4 shadow-md transition-all hover:scale-105 md:h-40 lg:max-w-full"
     >
       <div className="flex flex-col justify-between">
         <h1 className="w-full font-medium lg:text-xl ">{post.title}</h1>

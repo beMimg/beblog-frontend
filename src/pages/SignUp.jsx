@@ -5,7 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 async function SignUpUser(credentials) {
   try {
     const response = await axios.post(
-      "http://localhost:3000/api/users",
+      "https://backendblogapi-production.up.railway.app/api/users",
       credentials,
       {
         headers: {

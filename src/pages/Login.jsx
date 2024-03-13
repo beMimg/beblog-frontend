@@ -6,7 +6,7 @@ import { Link, useNavigate } from "react-router-dom";
 async function loginUser(credentials) {
   try {
     const response = await axios.post(
-      "http://localhost:3000/api/login",
+      "https://backendblogapi-production.up.railway.app/api/login",
       credentials,
       {
         headers: {
