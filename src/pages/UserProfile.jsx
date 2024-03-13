@@ -29,7 +29,7 @@ export default function UserProfile() {
     navigation("/");
     setToken();
     setUser();
-    setTheme();
+    setTheme("light");
   }
 
   return (

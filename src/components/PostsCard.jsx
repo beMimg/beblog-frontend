@@ -20,40 +20,27 @@ export default function PostCard({ post }) {
     getComments();
   }, []);
 
-  // function getImgSrc(post) {
-  //   const imgData = Buffer.from(post.img.data).toString("base64");
-  //   const imgSrc = `data:${post.img.contentType};base64,${imgData}`;
-
-  //   return imgSrc;
-  // }
-
   return (
     <Link
       to={`/posts/${post._id}`}
       key={post._id}
-      className=" relative grid h-36 max-w-[400px] grid-cols-10 rounded-xl  border border-blue-500 p-2.5 shadow-md md:h-56 lg:h-72 lg:max-w-full"
+      className="reverseTheme relative flex h-36 w-full grid-cols-10 flex-row justify-between rounded-md p-4 shadow-md md:h-40 lg:max-w-full"
     >
-      <div
-        // src={getImgSrc(post)}
-        className="col-span-4 rounded-md bg-pink-200 md:col-span-5 lg:col-span-4"
-      ></div>
-      <div className="col-span-6 flex flex-col justify-between p-1 md:col-span-5 lg:col-span-6 lg:p-7">
+      <div className="flex flex-col justify-between">
         <h1 className="w-full font-medium lg:text-xl ">{post.title}</h1>
-        <div className="flex flex-row justify-between">
-          <p className="reverseTheme w-min self-center rounded-md bg-gray-700 px-6 text-center text-sm">
-            {post.topic}
-          </p>
+        <p className="themeModalButton self-center rounded-md px-6 text-center text-xs font-semibold">
+          {post.topic}
+        </p>
+        <p className="text-md font-light opacity-80">{post.author.username}</p>
+      </div>
+      <div className="flex flex-col justify-between">
+        <div className="flex flex-row items-center justify-between self-end">
           <div className="flex flex-row items-center gap-[2px] opacity-60">
             <FaRegComment />
             <p className="text-md">{count}</p>
           </div>
         </div>
-        <div className="flex flex-row items-center justify-between">
-          <p className="text-md font-light opacity-80">
-            {post.author.username}
-          </p>
-          <p className="text-sm opacity-40">{post.formated_date}</p>
-        </div>
+        <p className="text-sm opacity-40">{post.formated_date}</p>
       </div>
     </Link>
   );
