@@ -65,6 +65,7 @@ export default function Comment({ comment, post_id, setForceRerender }) {
             value={editComment}
             onChange={(e) => setEditComment(e.target.value)}
             className="themeModalButton my-2 w-full rounded-md p-2"
+            required
           />
           <button
             type="submit"
