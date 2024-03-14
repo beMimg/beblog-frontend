@@ -28,13 +28,8 @@ export default function SignUp() {
   const [password, setPassword] = useState("");
   const [password_confirmation, setPasswordConfirmation] = useState("");
   const [errors, setErrors] = useState();
-  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const navigate = useNavigate();
-
-  if (isSubmitting) {
-    return <p>Submitting</p>;
-  }
 
   async function handleSubmit(e) {
     e.preventDefault();
