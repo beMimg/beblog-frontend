@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState } from "react";
 import { IoClose } from "react-icons/io5";
 import { useNavigate } from "react-router-dom";
+import api_domain from "../functions/api_domain";
 
 export default function CreatePost({ setIsCreatePostOpen }) {
   const [title, setTitle] = useState();
@@ -22,15 +23,11 @@ export default function CreatePost({ setIsCreatePostOpen }) {
       formData.append("isPublished", isPublished);
       formData.append("img", img);
 
-      const response = await axios.post(
-        "https://backendblogapi-production.up.railway.app/api/posts",
-        formData,
-        {
-          headers: {
-            "Content-Type": "multipart/form-data",
-          },
+      const response = await axios.post(`${api_domain}api/posts`, formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
         },
-      );
+      });
       navigation(`/posts/${response.data.post._id}`, { replace: true });
       return;
     } catch (err) {

@@ -2,6 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { CiEdit } from "react-icons/ci";
 import { useUser } from "../context/userProvider";
+import api_domain from "../functions/api_domain";
 
 export default function Comment({ comment, post_id, setForceRerender }) {
   const [isEditFormOpen, setIsEditFormOpen] = useState(false);
@@ -17,7 +18,7 @@ export default function Comment({ comment, post_id, setForceRerender }) {
     e.preventDefault();
     try {
       const response = await axios.put(
-        `https://backendblogapi-production.up.railway.app/api/posts/${post_id}/comments/${comment._id}`,
+        `${api_domain}api/posts/${post_id}/comments/${comment._id}`,
         { text: editComment },
         {
           headers: {

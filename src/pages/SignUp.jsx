@@ -1,18 +1,15 @@
 import { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
+import api_domain from "../functions/api_domain";
 
 async function SignUpUser(credentials) {
   try {
-    const response = await axios.post(
-      "https://backendblogapi-production.up.railway.app/api/users",
-      credentials,
-      {
-        headers: {
-          "Content-Type": "application/json",
-        },
+    const response = await axios.post(`${api_domain}api/users`, credentials, {
+      headers: {
+        "Content-Type": "application/json",
       },
-    );
+    });
 
     return response.data;
   } catch (err) {

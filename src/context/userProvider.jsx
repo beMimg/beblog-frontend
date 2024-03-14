@@ -1,6 +1,7 @@
 import axios from "axios";
 import { createContext, useContext, useState, useMemo, useEffect } from "react";
 import { useAuth } from "./authProvider";
+import api_domain from "../functions/api_domain";
 
 const UserContext = createContext();
 
@@ -17,10 +18,7 @@ export default function UserProvider({ children }) {
   useEffect(() => {
     const getUser = async () => {
       try {
-        const response = await axios.get(
-          "https://backendblogapi-production.up.railway.app/api/users/self",
-          config,
-        );
+        const response = await axios.get(`${api_domain}api/users/self`, config);
 
         setUser(response.data);
       } catch (err) {

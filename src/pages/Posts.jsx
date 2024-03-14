@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import PostCard from "../components/PostsCard";
 import Loading from "../components/Loading";
+import api_domain from "../functions/api_domain";
 
 export default function Posts() {
   const [data, setData] = useState();
@@ -12,9 +13,7 @@ export default function Posts() {
   useEffect(() => {
     const getPosts = async () => {
       try {
-        const response = await axios.get(
-          "https://backendblogapi-production.up.railway.app/api/posts",
-        );
+        const response = await axios.get(`${api_domain}api/posts`);
         setData(response.data);
         return;
       } catch (err) {
