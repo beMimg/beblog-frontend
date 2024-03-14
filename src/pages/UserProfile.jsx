@@ -6,12 +6,14 @@ import { useAuth } from "../context/authProvider";
 import { useNavigate } from "react-router-dom";
 import CreatePost from "../components/CreatePost";
 import Loading from "../components/Loading";
+import { useTheme } from "../context/themeProvider";
 
 export default function UserProfile() {
   const [isColorModalOpen, setIsColorModalOpen] = useState(false);
   const [isCreatePostOpen, setIsCreatePostOpen] = useState(false);
   const { setToken } = useAuth();
   const { user, setUser } = useUser();
+  const { setTheme } = useTheme();
   const navigation = useNavigate();
 
   if (!user) {
