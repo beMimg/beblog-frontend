@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useTheme } from "../context/themeProvider";
 import getColor from "../functions/getColor";
 import ColorModal from "../components/ColorModal";
 import { useUser } from "../context/userProvider";
@@ -12,7 +11,6 @@ export default function UserProfile() {
   const [isColorModalOpen, setIsColorModalOpen] = useState(false);
   const [isCreatePostOpen, setIsCreatePostOpen] = useState(false);
   const { setToken } = useAuth();
-  const { setTheme } = useTheme();
   const { user, setUser } = useUser();
   const navigation = useNavigate();
 
@@ -35,7 +33,6 @@ export default function UserProfile() {
     navigation("/");
     setToken();
     setUser();
-    setTheme();
     window.location.reload();
   }
 
@@ -83,7 +80,7 @@ export default function UserProfile() {
         </div>
       )}
       <button
-        className="themeButton animate-left-to-right absolute bottom-4 rounded-md px-2 py-0.5 transition-all hover:scale-105"
+        className="themeButton absolute bottom-4 animate-left-to-right rounded-md px-2 py-0.5 transition-all hover:scale-105"
         onClick={setTheme}
       >
         Toggle Theme

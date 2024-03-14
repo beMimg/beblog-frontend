@@ -10,10 +10,10 @@ export default function UserProvider({ children }) {
 
   // Since this is a Provider, default axios headers set on authProvider, will not be in this request.
   // For this reason, hardcode the header for the user.
-
   const config = {
     headers: { Authorization: `Bearer ${token}` },
   };
+
   useEffect(() => {
     const getUser = async () => {
       try {
