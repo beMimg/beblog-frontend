@@ -27,16 +27,16 @@ const Routes = () => {
       path: "/posts",
       element: <Posts />,
     },
+    {
+      path: "/posts/:post_id",
+      element: <Post />,
+    },
   ];
 
   const routesForAuthenticatedOnly = [
     {
       path: "/user-profile",
       element: <UserProfile />,
-    },
-    {
-      path: "/posts/:post_id",
-      element: <Post />,
     },
   ];
 
