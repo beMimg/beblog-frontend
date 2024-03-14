@@ -43,7 +43,6 @@ export default function SignUp() {
     });
     if (data.errors) {
       setErrors(data.errors);
-      window.scrollTo(0, document.body.scrollHeight);
     } else {
       navigate("/login", { replace: true });
       return;
@@ -108,6 +107,17 @@ export default function SignUp() {
           placeholder="Password confirmation"
           className={`inputStyleDefault`}
         />
+        <ul className="bottom-10 ml-4 list-disc lg:min-h-14 lg:text-lg">
+          {errors &&
+            errors.map((error) => (
+              <li
+                key={error.msg}
+                className="animate-fade-in text-xs text-red-600 lg:text-[15px]"
+              >
+                {error.msg}
+              </li>
+            ))}
+        </ul>
         <button
           type="submit"
           className="w-full rounded-md bg-blue-600 p-2 text-white"
@@ -125,14 +135,6 @@ export default function SignUp() {
           Log In
         </Link>
       </p>
-      <ul className="bottom-10 ml-4 list-disc lg:absolute lg:text-lg">
-        {errors &&
-          errors.map((error) => (
-            <li key={error.msg} className="text-xs text-red-600 lg:text-[15px]">
-              {error.msg}
-            </li>
-          ))}
-      </ul>
     </div>
   );
 }
