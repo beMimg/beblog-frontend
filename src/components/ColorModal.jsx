@@ -3,6 +3,7 @@ import { IoIosClose } from "react-icons/io";
 import editProfile from "../functions/editProfile";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import api_domain from "../functions/api_domain";
 
 const colors = [
   { name: "red", style: "bg-red-400" },
@@ -22,7 +23,7 @@ export default function ColorModal({ setIsColorModalOpen, user }) {
     e.preventDefault();
     try {
       const response = await axios.put(
-        `https://backendblogapi-production.up.railway.app/api/users/${user.user._id}/update-color`,
+        `${api_domain}api/users/${user.user._id}/update-color`,
         { color },
       );
       navigate(0);

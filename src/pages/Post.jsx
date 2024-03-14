@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import CommentSection from "../components/CommentSection";
 import Loading from "../components/Loading";
+import api_domain from "../functions/api_domain";
 
 export default function Post() {
   const [post, setPost] = useState();
@@ -14,9 +15,7 @@ export default function Post() {
   useEffect(() => {
     const getPosts = async () => {
       try {
-        const response = await axios.get(
-          `https://backendblogapi-production.up.railway.app/api/posts/${post_id}`,
-        );
+        const response = await axios.get(`${api_domain}api/posts/${post_id}`);
         setPost(response.data.post);
         return;
       } catch (err) {

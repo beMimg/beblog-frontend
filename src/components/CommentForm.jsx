@@ -1,11 +1,12 @@
 import axios from "axios";
 import { useCallback } from "react";
 import { useState } from "react";
+import api_domain from "../functions/api_domain";
 
 async function postComment(post_id, comment) {
   try {
     const response = await axios.post(
-      `https://backendblogapi-production.up.railway.app/api/posts/${post_id}/comments`,
+      `${api_domain}api/posts/${post_id}/comments`,
       { text: comment },
       {
         headers: {

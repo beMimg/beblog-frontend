@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { FaRegComment } from "react-icons/fa6";
-
+import api_domain from "../functions/api_domain";
 export default function PostCard({ post }) {
   const [count, setCount] = useState();
 
@@ -10,7 +10,7 @@ export default function PostCard({ post }) {
     const getComments = async () => {
       try {
         const response = await axios.get(
-          `https://backendblogapi-production.up.railway.app/api/posts/${post._id}/comments/count`,
+          `${api_domain}api/posts/${post._id}/comments/count`,
         );
         setCount(response.data.commentsCount);
       } catch (err) {

@@ -3,6 +3,7 @@ import { useEffect, useState, useCallback } from "react";
 import CommentForm from "./CommentForm";
 import Comments from "./Comments";
 import Loading from "./Loading";
+import api_domain from "../functions/api_domain";
 
 export default function CommentSection({ post_id }) {
   const [comments, setComments] = useState();
@@ -14,7 +15,7 @@ export default function CommentSection({ post_id }) {
     const getComments = async () => {
       try {
         const response = await axios.get(
-          `https://backendblogapi-production.up.railway.app/api/posts/${post_id}/comments`,
+          `${api_domain}api/posts/${post_id}/comments`,
         );
         setComments(response.data.comments);
         return;
