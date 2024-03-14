@@ -5,7 +5,7 @@ import { useUser } from "../context/userProvider";
 
 export default function Comment({ comment, post_id, setForceRerender }) {
   const [isEditFormOpen, setIsEditFormOpen] = useState(false);
-  const [editComment, setEditComment] = useState("");
+  const [editComment, setEditComment] = useState(comment.text);
 
   const { user } = useUser();
 
@@ -44,7 +44,6 @@ export default function Comment({ comment, post_id, setForceRerender }) {
           <div
             className={`bg-${comment.author.color}-400 h-8 w-8 rounded-full`}
           ></div>
-          {/* Link to user profile */}
           <h2 className=" font-medium">{comment.author.username}</h2>
         </div>
         {comment.author._id === user.user._id && (
@@ -65,7 +64,6 @@ export default function Comment({ comment, post_id, setForceRerender }) {
             type="text"
             value={editComment}
             onChange={(e) => setEditComment(e.target.value)}
-            placeholder={comment.text}
             className="themeModalButton my-2 w-full rounded-md p-2"
           />
           <button
