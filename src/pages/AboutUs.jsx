@@ -1,6 +1,6 @@
 export default function AboutUs() {
   return (
-    <div className="animate-fade-in flex flex-1 flex-col justify-evenly self-center p-4 lg:w-[960px]">
+    <div className="flex flex-1 animate-fade-in flex-col justify-center gap-8 self-center p-4 lg:w-[960px] lg:gap-12">
       <div>
         <h1 className="text-2xl font-semibold">About Us</h1>
         <p>
