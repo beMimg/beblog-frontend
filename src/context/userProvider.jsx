@@ -11,15 +11,15 @@ export default function UserProvider({ children }) {
   // Since this is a Provider, default axios headers set on authProvider, will not be in this request.
   // For this reason, hardcode the header for the user.
 
-  // const config = {
-  //   headers: { Authorization: `Bearer ${token}` },
-  // };
+  const config = {
+    headers: { Authorization: `Bearer ${token}` },
+  };
   useEffect(() => {
     const getUser = async () => {
       try {
         const response = await axios.get(
           "https://backendblogapi-production.up.railway.app/api/users/self",
-          // config,
+          config,
         );
 
         setUser(response.data);
