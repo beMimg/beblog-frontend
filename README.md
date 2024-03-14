@@ -1,4 +1,4 @@
-# MovieWish
+# beBlog
 
 Welcome to beBlog! I'm beMimg, and I'm excited to introduce you to our full-stack web application, built with Node.js and React.
 
