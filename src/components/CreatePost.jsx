@@ -10,8 +10,6 @@ export default function CreatePost({ setIsCreatePostOpen }) {
   const [isPublished, setIsPublish] = useState(true);
   const [img, setImg] = useState();
 
-  console.log(img);
-
   const navigation = useNavigate();
 
   async function handleSubmit(e) {
@@ -40,7 +38,6 @@ export default function CreatePost({ setIsCreatePostOpen }) {
     }
   }
 
-  console.log(img);
   return (
     <div className="w-[960px] p-4">
       <h1 className="mb-4 text-center text-xl font-semibold text-white">
