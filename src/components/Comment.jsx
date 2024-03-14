@@ -47,7 +47,7 @@ export default function Comment({ comment, post_id, setForceRerender }) {
           ></div>
           <h2 className=" font-medium">{comment.author.username}</h2>
         </div>
-        {comment.author._id === user.user._id && (
+        {user && comment.author._id === user.user._id && (
           <CiEdit
             className="cursor-pointer text-xl transition-all hover:scale-125"
             onClick={handleEditForm}
