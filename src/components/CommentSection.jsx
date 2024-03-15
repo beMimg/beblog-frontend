@@ -4,12 +4,15 @@ import CommentForm from "./CommentForm";
 import Comments from "./Comments";
 import Loading from "./Loading";
 import api_domain from "../functions/api_domain";
+import { useUser } from "../context/userProvider";
 
 export default function CommentSection({ post_id }) {
   const [comments, setComments] = useState();
   const [forceRerender, setForceRerender] = useState(1);
   const [error, setError] = useState();
   const [isLoading, setIsLoading] = useState();
+
+  const { user } = useUser();
 
   useEffect(() => {
     const getComments = async () => {
@@ -51,9 +54,20 @@ export default function CommentSection({ post_id }) {
             {comments.length}
           </p>
         </div>
+
         <div className="mb-10">
-          <CommentForm post_id={post_id} setForceRerender={setForceRerender} />
+          {user ? (
+            <CommentForm
+              post_id={post_id}
+              setForceRerender={setForceRerender}
+            />
+          ) : (
+            <h3 className="text-md pt-3 text-center font-medium text-gray-500">
+              If you want to comment, please log in.
+            </h3>
+          )}
         </div>
+
         {comments.length === 0 ? (
           <p className="pl-2">Be the first to comment</p>
         ) : (
