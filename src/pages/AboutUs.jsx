@@ -25,7 +25,10 @@ export default function AboutUs() {
           Features for Unauthenticated Users:
         </h3>
         <ul className="list-disc pl-4">
-          <li>View existing posts (but not their content).</li>
+          <li>
+            Access all posts and their content, including comments (but not
+            write comments).
+          </li>
         </ul>
       </div>
       <p>
