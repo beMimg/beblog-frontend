@@ -39,10 +39,10 @@ export default function Comment({ comment, post_id, setForceRerender }) {
   // determine user's time zone using browser time zone
   const userTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
 
+  // use users time zone to format the date of comment
   const formattedDate = DateTime.fromISO(comment.formatted_date)
     .setZone(userTimeZone)
     .toLocaleString(DateTime.DATETIME_MED);
-  console.log(userTimeZone);
 
   return (
     <div
@@ -85,9 +85,7 @@ export default function Comment({ comment, post_id, setForceRerender }) {
           </button>
         </form>
       )}
-      <p className="self-end pb-2 text-sm text-gray-500">
-        {comment.formatted_zone}
-      </p>
+      <p className="self-end pb-2 text-sm text-gray-500">{formattedDate}</p>
     </div>
   );
 }

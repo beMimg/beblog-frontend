@@ -1,4 +1,3 @@
-// const api_domain = "https://backendblogapi-production.up.railway.app/";
-const api_domain = "http://localhost:3000/";
+const api_domain = "https://backendblogapi-production.up.railway.app/";
 
 export default api_domain;
