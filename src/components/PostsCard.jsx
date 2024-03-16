@@ -14,7 +14,7 @@ export default function PostCard({ post }) {
         );
         setCount(response.data.commentsCount);
       } catch (err) {
-        console.log(err);
+        return;
       }
     };
     getComments();

@@ -31,7 +31,7 @@ export default function CreatePost({ setIsCreatePostOpen }) {
       navigation(`/posts/${response.data.post._id}`, { replace: true });
       return;
     } catch (err) {
-      console.log(err.response.data);
+      return;
     }
   }
 

@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { CiEdit } from "react-icons/ci";
 import { useUser } from "../context/userProvider";
 import api_domain from "../functions/api_domain";
+import { DateTime } from "luxon";
 
 export default function Comment({ comment, post_id, setForceRerender }) {
   const [isEditFormOpen, setIsEditFormOpen] = useState(false);
@@ -34,6 +35,14 @@ export default function Comment({ comment, post_id, setForceRerender }) {
       return;
     }
   }
+
+  // determine user's time zone using browser time zone
+  const userTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+
+  const formattedDate = DateTime.fromISO(comment.formatted_date)
+    .setZone(userTimeZone)
+    .toLocaleString(DateTime.DATETIME_MED);
+  console.log(userTimeZone);
 
   return (
     <div
@@ -77,7 +86,7 @@ export default function Comment({ comment, post_id, setForceRerender }) {
         </form>
       )}
       <p className="self-end pb-2 text-sm text-gray-500">
-        {comment.formated_date}
+        {comment.formatted_zone}
       </p>
     </div>
   );

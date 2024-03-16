@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { IoIosClose } from "react-icons/io";
-import editProfile from "../functions/editProfile";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import api_domain from "../functions/api_domain";
@@ -28,7 +27,7 @@ export default function ColorModal({ setIsColorModalOpen, user }) {
       );
       navigate(0);
     } catch (err) {
-      console.log(err.response.data.message);
+      return;
     }
   }
   return (
