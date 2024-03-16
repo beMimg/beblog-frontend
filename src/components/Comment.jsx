@@ -44,10 +44,6 @@ export default function Comment({ comment, post_id, setForceRerender }) {
     .setZone(userTimeZone)
     .toLocaleString(DateTime.DATETIME_MED);
 
-  if (comment.author) {
-    console.log(comment.author.color);
-  }
-  console.log(user);
   return (
     comment &&
     comment.author && (

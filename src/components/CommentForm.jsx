@@ -14,10 +14,8 @@ async function postComment(post_id, comment) {
         },
       },
     );
-    console.log(response);
     return;
   } catch (err) {
-    console.log(err.response);
     return;
   }
 }
