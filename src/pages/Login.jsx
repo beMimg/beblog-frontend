@@ -45,7 +45,7 @@ export default function Login() {
 
   return (
     <div className="relative flex flex-1 flex-col items-center justify-center gap-6 p-4 lg:w-[960px] lg:self-center">
-      <h1 className="text-lg font-bold">Log In</h1>
+      <h1 className="text-lg font-bold lg:text-3xl">Log In</h1>
       <form onSubmit={handleSubmit} className="flex w-full flex-col gap-4">
         <input
           type="text"
@@ -64,7 +64,7 @@ export default function Login() {
           className="inputStyleDefault"
         />
         <button
-          className="w-full rounded-md bg-blue-600 p-2 text-white"
+          className="w-full rounded-md bg-blue-600 p-2 text-white lg:text-xl"
           type="submit"
         >
           Login

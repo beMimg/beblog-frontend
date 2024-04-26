@@ -62,7 +62,7 @@ export default function UserProfile() {
           <p>{user.user.email}</p>
           {user.user.admin && (
             <button
-              className="themeButton rounded-lg px-6 py-1 transition-all hover:scale-105"
+              className="themeButton animate-fade-in rounded-lg  px-6 py-1 transition-all hover:scale-105"
               onClick={() => setIsCreatePostOpen(true)}
             >
               Create a Post
@@ -70,23 +70,23 @@ export default function UserProfile() {
           )}
           <button
             onClick={handleLogout}
-            className="themeButton rounded-lg px-6 py-1 transition-all hover:scale-105"
+            className="themeButton animate-fade-in rounded-lg px-6 py-1 transition-all hover:scale-105"
           >
             Logout
           </button>
           {isCreatePostOpen && (
-            <div className="absolute left-0 top-0 z-20 flex h-full w-full justify-center bg-black bg-opacity-90 p-4 pt-20">
+            <div className="absolute left-0  top-0 z-20 flex h-full w-full justify-center bg-black bg-opacity-90 p-4 pt-20">
               <CreatePost setIsCreatePostOpen={setIsCreatePostOpen} />
             </div>
           )}
+          <button
+            className="themeButton animate-fade-in rounded-lg px-6  py-1 transition-all hover:scale-105"
+            onClick={setTheme}
+          >
+            Toggle Theme
+          </button>
         </div>
       )}
-      <button
-        className="themeButton absolute bottom-4 animate-left-to-right rounded-md px-2 py-0.5 transition-all hover:scale-105"
-        onClick={setTheme}
-      >
-        Toggle Theme
-      </button>
     </div>
   );
 }

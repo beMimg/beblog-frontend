@@ -5,12 +5,15 @@ export default function Nav() {
   const { token } = useAuth();
 
   return (
-    <nav className=" flex flex-row justify-between lg:justify-around">
-      <Link to="/" className=" text-2xl font-semibold transition duration-700 ">
+    <nav className="flex w-full flex-row justify-between lg:w-[70%] lg:py-3">
+      <Link
+        to="/"
+        className=" text-2xl font-semibold transition duration-700 lg:text-3xl "
+      >
         beBlog
       </Link>
       {token ? (
-        <div className="lg:text-md flex flex-row items-center gap-6 text-sm">
+        <div className="flex flex-row items-center gap-6 text-sm lg:text-base ">
           <Link to="/posts" className="transitionsNavLinks">
             Posts
           </Link>
@@ -22,7 +25,7 @@ export default function Nav() {
           </Link>
         </div>
       ) : (
-        <div className="lg:text-md flex flex-row items-center justify-center gap-6 text-center text-sm">
+        <div className="flex flex-row items-center justify-center gap-6 text-center text-sm lg:text-base">
           <Link to="/posts" className="transitionsNavLinks">
             Posts
           </Link>

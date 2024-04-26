@@ -49,8 +49,8 @@ export default function SignUp() {
   return (
     <div className="relative flex flex-1 flex-col items-center justify-center gap-4 p-4 lg:w-[960px] lg:gap-8 lg:self-center">
       <div className="flex flex-col items-center justify-center ">
-        <h1 className="text-lg font-bold">Sign Up</h1>
-        <p className="text-center text-sm">
+        <h1 className="text-lg font-bold lg:text-3xl">Sign Up</h1>
+        <p className="text-center text-sm lg:text-lg">
           Let's get started. View posts and comment by creating an account.
         </p>
       </div>
@@ -117,7 +117,7 @@ export default function SignUp() {
         </ul>
         <button
           type="submit"
-          className="w-full rounded-md bg-blue-600 p-2 text-white"
+          className="w-full rounded-md bg-blue-600 p-2 text-white lg:text-xl"
         >
           Sign Up
         </button>
