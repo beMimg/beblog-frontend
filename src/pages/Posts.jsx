@@ -29,7 +29,7 @@ export default function Posts() {
 
   return (
     <div className="flex w-full flex-1 lg:justify-center">
-      <div className="flex w-full flex-col gap-4 p-4 lg:w-[960px] ">
+      <div className="flex w-full flex-col gap-4 p-4 lg:w-[70%] 2xl:w-[60%]">
         <h1 className=" mb-6  pt-4 text-2xl font-semibold">
           Discover our latest posts
         </h1>

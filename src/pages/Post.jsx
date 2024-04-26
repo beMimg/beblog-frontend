@@ -30,8 +30,8 @@ export default function Post() {
 
   return post && isLoading === false ? (
     <div className="font-sans flex animate-fade-in items-center justify-center">
-      <div className=" self-center lg:w-[960px]">
-        <div className="flex flex-col gap-12 p-5">
+      <div className=" self-center lg:w-[70%] 2xl:w-[60%]">
+        <div className="flex flex-col gap-12 p-5 lg:px-0 lg:py-5">
           <div>
             <h1 className="text-2xl font-semibold">{post.title}</h1>
             <div className="flex flex-row gap-2">

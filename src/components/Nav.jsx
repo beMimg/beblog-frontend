@@ -5,7 +5,7 @@ export default function Nav() {
   const { token } = useAuth();
 
   return (
-    <nav className="flex w-full flex-row justify-between lg:w-[70%] lg:py-3">
+    <nav className="flex w-full flex-row justify-between lg:w-[70%] lg:py-3 2xl:w-[60%]">
       <Link
         to="/"
         className=" text-2xl font-semibold transition duration-700 lg:text-3xl "

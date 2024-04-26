@@ -47,7 +47,7 @@ export default function SignUp() {
   }
 
   return (
-    <div className="relative flex flex-1 flex-col items-center justify-center gap-4 p-4 lg:w-[960px] lg:gap-8 lg:self-center">
+    <div className="relative flex flex-1 flex-col items-center justify-center gap-4 p-4 lg:w-[70%] lg:gap-8 lg:self-center lg:p-0 2xl:w-[60%]">
       <div className="flex flex-col items-center justify-center ">
         <h1 className="text-lg font-bold lg:text-3xl">Sign Up</h1>
         <p className="text-center text-sm lg:text-lg">
