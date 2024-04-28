@@ -4,7 +4,7 @@ export default function AboutUs() {
       <div>
         <h1 className="text-2xl font-semibold">About Us</h1>
         <p>
-          Welcome to beBlog! I'm beMimg, and I'm excited to introduce you to our
+          Welcome to beBlog! I'm beMimg, and I'm excited to introduce you to my
           full-stack web application, built with Node.js and React.
         </p>
       </div>
