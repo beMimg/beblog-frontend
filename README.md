@@ -23,7 +23,7 @@ beBlog is a blogging platform built with React on the front end and Node.js, Exp
 
 ## Key Features for Unauthenticated Users
 
-- View existing posts (but not their content).
+- View existing posts.
 
 
 ## Technologies Used
